@@ -4,10 +4,10 @@ import { EventsComponent } from './events.component';
 import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
-  { path: '', component: EventsComponent },
   {
+    path: '', component: EventsComponent,
     children: [
-      {path: ':id', component: EventComponent}
+      { path: ':id', component: EventComponent}
     ]
   }
 ];

@@ -7,10 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { CoreRoutingModule } from './core-routing.module';
 import { Error404Module } from '../error404/error404.module';
 
+import { EventsService } from './services/events.service';
+import { PortfolioService } from './services/portfolio.service';
+
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
+
 
 @NgModule({
 imports: [
@@ -30,6 +34,7 @@ imports: [
     HomeComponent,
     Error404Module
   ],
+  providers: [EventsService, PortfolioService],
   declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent]
 })
 export class CoreModule { }

@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '', component: EventsComponent,
     children: [
-      { path: ':id', component: EventComponent}
+      { path: ':year/:month/:event', component: EventComponent}
     ]
   }
 ];

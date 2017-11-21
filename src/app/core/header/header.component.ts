@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IEvents } from '../shared/IEvents';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  events: IEvents[] = [];
+
+
+  constructor() {
+
+    let a = {
+      year: 2016,
+      month: '05.May',
+      event: ['Event1']
+    }
+
+    this.events.push(a);
+
+  }
 
   ngOnInit() {
   }

@@ -1,7 +1,5 @@
 export interface IEvents {
-
-  year : number
-  month: string
-  event: string[]
-
+  year : number;
+  month: string;
+  event: string[];
 }

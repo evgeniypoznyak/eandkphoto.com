@@ -11,17 +11,25 @@ import { EventsService } from './services/events.service';
 import { PortfolioService } from './services/portfolio.service';
 
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
+import { SliderService } from './slider/slider.service';
+import { HeaderComponent } from './header/header.component';
+import { MultiItemsComponent } from './header/multi-items/multi-items.component';
 
 
 @NgModule({
-imports: [
+
+  declarations: [
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    SliderComponent,
+    MultiItemsComponent,
+  ],
+
+  imports: [
     CommonModule,
-    HttpModule,
-    FormsModule,
-    BrowserAnimationsModule,
     CoreRoutingModule,
   ],
   exports: [
@@ -34,7 +42,7 @@ imports: [
     HomeComponent,
     Error404Module
   ],
-  providers: [EventsService, PortfolioService],
-  declarations: [HomeComponent, HeaderComponent, FooterComponent, SliderComponent]
+  providers: [EventsService, PortfolioService, SliderService],
+
 })
-export class CoreModule { }
+export class CoreModule {}

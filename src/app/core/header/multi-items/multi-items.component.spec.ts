@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeadComponent } from './header.component';
+import { MultiItemsComponent } from './multi-items.component';
 
-describe('HeadComponent', () => {
-  let component: HeadComponent;
-  let fixture: ComponentFixture<HeadComponent>;
+describe('MultiItemsComponent', () => {
+  let component: MultiItemsComponent;
+  let fixture: ComponentFixture<MultiItemsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeadComponent ]
+      declarations: [ MultiItemsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeadComponent);
+    fixture = TestBed.createComponent(MultiItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

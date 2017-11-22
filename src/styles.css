@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #333333;
+  color: #ffffff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  margin: 0px;
+  padding: 0px;
+}
+
+ul, menu, div, p {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+  margin: 0px;
+  padding: 0px;
+}

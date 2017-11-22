@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'events', loadChildren: '../events/events.module#EventsModule'}, // lazyload
+  {path: 'portfolio', loadChildren: '../portfolio/portfolio.module#PortfolioModule'}, // lazyload
 ];
 
 @NgModule({

@@ -21,7 +21,7 @@ export class SliderComponent implements OnInit {
     {
       id: 1,
       src: slider1,
-      header: 'Providing Solutions to the World\'s Leading Brands',
+      header: 'Your Header Text Goes Here',
       headerAnimation: 'default',
       paragraph: '',
       paragraphAnimation: 'default',
@@ -39,6 +39,7 @@ export class SliderComponent implements OnInit {
 
     this.runSlider(this.getRandomNumber());
     this.sliderService.getSliderById(1).subscribe((data) => {
+      console.log(data);
       this.sliderPictures.push(...data);
     });
 

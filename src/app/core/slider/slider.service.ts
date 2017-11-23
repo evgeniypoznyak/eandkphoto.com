@@ -1,28 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import 'rxjs/Rx';
 import { Router } from '@angular/router';
 
 
 @Injectable()
-export class SliderService{
+export class SliderService {
 
   private _adiAddress: string = 'http://data.eandkphoto.loc/api/slider/';
 
   constructor(private _http: HttpClient, private router: Router) {}
 
   getSliderById(id: number) {
-    return this._http.get<any[]>(this._adiAddress + id, {
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    }).map(response => {
+
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {'Content-Type': 'application/json','X-Requested-With': ['XMLHttpRequest']}
+          // можно массив передавать, только надо настроить Cors.php
+        )
+    };
+
+    return this._http.get<any[]>(this._adiAddress + id, httpOptions).map(response => {
       return response
     }).do(
       (data) => {
-      //  console.log(data);
+        //  console.log(data);
       });
   }
 

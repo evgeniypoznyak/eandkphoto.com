@@ -2,51 +2,20 @@
 
   <div class="pictures">
 
-
-
-    <div (click)="onPrev()" class="prev-image"><</div>
-    <div (click)="onPlay()" class="play-image">PLAY</div>
-    <div (click)="onNext()" class="next-image">></div>
-
-
-  <div
-    *ngFor="let slider of sliderPictures; let i = index"
-    [@textSliderTrigger]="markedIndex == i ? slider.headerAnimation : 'hidden'"
-    class="slider-text">
-    {{slider.header}}
-  </div>
-
-
     <!-- этот див очень важен, по нему выставляется слайдер!!! -->
     <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0; position: relative">
       <img src="{{sliderPictures[0].src}}" style="width: 100%;">
     </div>
-
 
     <img
       *ngFor="let slider of sliderPictures; let i = index"
       class="picture"
       [@sliderTrigger]="markedIndex == i ? slider.pictureAnimation : 'hidden'"
       src="{{slider.src}}" alt="">
-
-
+    <div class="menu"></div>
   </div>
 
 
-</div>
 
 
-<h1>
-  {{randomNumber}}
-</h1>
-
-<div
-  *ngFor="let slider of sliderPictures; let i = index"
->
-  <!--<h3>-->
-    <!--{{slider.pictureAnimation}}-->
-  <!--</h3>-->
-  <h3>
-    {{slider.header}}
-  </h3>
 </div>

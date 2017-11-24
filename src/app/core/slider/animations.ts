@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 
 export const sliderTrigger = trigger('sliderTrigger', [
   state('default', style({
-    // opacity: 1 // это не обязательно выводить, так как по умолчанию нет ничего и видно
+     opacity: 1 // это не обязательно выводить, так как по умолчанию нет ничего и видно
   })),
   // default - у Макса это это
   state('hidden', style({
@@ -10,21 +10,34 @@ export const sliderTrigger = trigger('sliderTrigger', [
     // 'width': '0%',
     // 'left' : '100%',
   })),
+  state('fade', style({
+    opacity: 1,
+  })),
  // transition('hidden => default', animate('300ms ease-out')),
   transition('hidden => default', [
   style({
-    'width': '200%'
+    // opacity: 1,
   }),
     animate(1500)
   ]),
   transition('default => hidden', [
   style({
-  //  'width': '200%'
+
+  }),
+    animate(1500)
+  ]),
+  transition('hidden <=> fade', [
+  style({
+    // opacity: 1,
   }),
     animate(1500)
   ]),
 //  transition('default => hidden', animate(1000)),
 ]);
+
+
+
+
 
 export const textSliderTrigger = trigger('textSliderTrigger', [
   state('showed', style({

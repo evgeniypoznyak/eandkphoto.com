@@ -16,6 +16,8 @@ import { SliderComponent } from './slider/slider.component';
 import { SliderService } from './slider/slider.service';
 import { HeaderComponent } from './header/header.component';
 import { MultiItemsComponent } from './header/multi-items/multi-items.component';
+import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './modal/modal.service';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { MultiItemsComponent } from './header/multi-items/multi-items.component'
     FooterComponent,
     SliderComponent,
     MultiItemsComponent,
+    ModalComponent,
   ],
 
   imports: [
@@ -42,7 +45,7 @@ import { MultiItemsComponent } from './header/multi-items/multi-items.component'
     HomeComponent,
     Error404Module
   ],
-  providers: [EventsService, PortfolioService, SliderService],
+  providers: [EventsService, PortfolioService, SliderService, ModalService],
 
 })
 export class CoreModule {}

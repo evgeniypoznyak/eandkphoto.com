@@ -17,6 +17,7 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
     // this.menu = this.menuService.menu;
     // console.log(this.menu);
+
   }
 
   openCloseModal() {

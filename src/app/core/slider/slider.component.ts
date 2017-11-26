@@ -39,7 +39,7 @@ export class SliderComponent implements OnInit {
 
     this.runSlider(this.getRandomNumber());
     this.sliderService.getSliderById(1).subscribe((data) => {
-    //  console.log(data);
+     console.log(data);
       this.sliderPictures.push(...data);
     });
 

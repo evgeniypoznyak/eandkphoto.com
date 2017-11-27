@@ -9,8 +9,35 @@ export class OptionsService {
   laravel = {
     generalApi: '',
     sliderApi: 'http://data.eandkphoto.loc/api/slider/',
-    headers: {
-      get: {
+    optHeaders: {
+      headersForGet: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest'],
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      headersForPost: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      headersForPut: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      headersForDelete: {
         headers: new HttpHeaders(
           {
             'Content-Type': 'application/json',
@@ -27,6 +54,44 @@ export class OptionsService {
   firebase = {
     generalApi: '',
     sliderApi: '',
+    optHeaders: {
+      headersForGet: {
+        headers: new HttpHeaders(
+          {
+            // 'Content-Type': 'application/json',
+            // 'X-Requested-With': ['XMLHttpRequest'],
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      headersForPost: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      headersForPut: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      headersForDelete: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      }
+    }
   }
 
   constructor() {

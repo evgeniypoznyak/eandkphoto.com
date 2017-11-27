@@ -17,6 +17,7 @@ export class ConnectService {
         return this.laravelService.getOneSlider(+id);
         break;
       case 'firebase':
+        // return this.firebaseService.getOneSlider(+id);
         break;
     }
   }

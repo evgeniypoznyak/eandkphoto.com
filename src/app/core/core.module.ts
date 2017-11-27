@@ -22,7 +22,6 @@ import { SliderComponent } from './slider/slider.component';
 import { HeaderComponent } from './header/header.component';
 import { MultiItemsComponent } from './header/multi-items/multi-items.component';
 import { ModalComponent } from './modal/modal.component';
-import { OptionsService } from './services/options.service';
 
 
 @NgModule({
@@ -59,7 +58,6 @@ import { OptionsService } from './services/options.service';
     ConnectService,
     FirebaseService,
     LaravelService,
-    OptionsService,
   ],
 
 })

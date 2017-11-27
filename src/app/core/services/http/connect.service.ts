@@ -6,19 +6,32 @@ import { FirebaseService } from './firebase.service';
 @Injectable()
 export class ConnectService {
 
-  constructor(private optionsService: OptionsService,
+  base = this._optionsService.base;
+
+  constructor(private _optionsService: OptionsService,
               private laravelService: LaravelService,
               private firebaseService: FirebaseService) { }
 
 
   getOneSliderItem(id: number) {
-    switch (this.optionsService.base) {
-      case 'laravel':
-        return this.laravelService.getOneSlider(+id);
-        break;
-      case 'firebase':
-        break;
+
+    if (this.base === 'laravel') {
+      return this.laravelService.getOneSliderItem(id)
     }
+    else if (this.base === 'firebase') {
+      //return this.firebaseService.getOneSliderItem(id)
+    }
+
+    //else return false;
+
+    // switch (this.base) {
+    //   case 'laravel':
+    //     return this.laravelService.getOneSliderItem(id)
+    //     break;
+    //   case 'firebase':
+    //     break;
+    // }
+
   }
 
 }

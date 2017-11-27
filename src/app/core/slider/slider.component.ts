@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { sliderTrigger, textSliderTrigger } from './animations';
 import { ISlider } from './ISlider';
 import { SliderService } from './slider.service';
-import {slider1} from './slider-content.service';
+import { slider1 } from './slider-content.service';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
@@ -36,14 +36,12 @@ export class SliderComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.runSlider(this.getRandomNumber());
-    this.sliderService.getSliderById(1).subscribe((data) => {
-     console.log(data);
-      this.sliderPictures.push(...data);
-    });
-
-
+    // this.sliderService.getSliderById(1);
+    this.sliderService.getSliderById(1)
+      .subscribe((data) => {
+        this.sliderPictures.push(...data);
+      });
 
   }
 
@@ -77,8 +75,8 @@ export class SliderComponent implements OnInit {
     this.runSlider(this.getRandomNumber());
   }
 
-  getRandomNumber(){
-    let number =  Math.floor((Math.random() * 2000) + 1800);
+  getRandomNumber() {
+    let number = Math.floor((Math.random() * 2000) + 1800);
     if (number < 1000) {
       number = number + 2500;
     }

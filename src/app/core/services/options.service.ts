@@ -6,11 +6,41 @@ export class OptionsService {
 
   base = 'laravel';
 
+  api;
+
+  menu = {
+    home: {
+      name: 'Home',
+      path: '/',
+      animation: ''
+    },
+    about: {
+      name: 'About',
+      path: '/about',
+      animation: ''
+    },
+    contact: {
+      name: 'Contact',
+      path: '/contact',
+      animation: ''
+    },
+    portfolio: {
+      portraits: { name: 'Portraits', path: '/portfolio/portraits' },
+      family: { name: 'Family', path: '/portfolio/family' },
+      name: 'Portfolio',
+      path: '/portfolio',
+      animation: ''
+    },
+    events: {}
+  }
+
+
   laravel = {
     generalApi: '',
     sliderApi: 'http://data.eandkphoto.loc/api/slider/',
+    eventsApi: 'http://data.eandkphoto.loc/api/events/',
     optHeaders: {
-      get: {
+      optGet: {
         headers: new HttpHeaders(
           {
             'Content-Type': 'application/json',
@@ -22,12 +52,13 @@ export class OptionsService {
     }
   }
 
-  api;
 
   firebase = {
     generalApi: '',
     sliderApi: '',
+    eventsApi: '',
   }
+
 
   constructor() {
     switch (this.base) {
@@ -41,11 +72,6 @@ export class OptionsService {
         this.api = false;
     }
 
-  }
-
-
-  checkBase() {
-    return this.base;
   }
 
 }

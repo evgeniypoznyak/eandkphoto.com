@@ -1,33 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { OptionsService } from '../options.service';
 
 @Injectable()
 export class LaravelService {
   api = this._options.api;
-  private httpOptions = {
-    headers: new HttpHeaders(
-      {
-        'Content-Type': 'application/json',
-        'X-Requested-With': ['XMLHttpRequest']
-      }
-      // можно массив передавать, только надо настроить Cors.php
-    )
-  }
+  httpOptions = this._options.laravel.optHeaders.optGet;
 
   constructor(private _http: HttpClient, private _options: OptionsService) { }
 
   getOneSliderItem(id: number) {
-    //console.log(this.api);
     return this._http.get<any[]>(this.api.sliderApi + id, this.httpOptions)
-    //   .map(response => {
-    //   return response
-    //   })
-    //   .do(data => {
-    //   return data
-    //   });
+  }
 
-
+  getEvents() {
+    return this._http.get<any[]>(this.api.eventsApi, this.httpOptions)
   }
 
 }

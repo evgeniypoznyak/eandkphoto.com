@@ -8,30 +8,28 @@ export class ConnectService {
 
   base = this._optionsService.base;
 
-  constructor(private _optionsService: OptionsService,
-              private laravelService: LaravelService,
-              private firebaseService: FirebaseService) { }
+  worker: any;
 
+  constructor(private _optionsService: OptionsService,
+              private _laravelService: LaravelService,
+              private _firebaseService: FirebaseService) {
+
+    switch (this._optionsService.base) {
+      case 'laravel':
+        this.worker = _laravelService;
+        break;
+      case 'firebase':
+        this.worker = _firebaseService;
+        break;
+    }
+  }
 
   getOneSliderItem(id: number) {
+    return this.worker.getOneSliderItem(id)
+  }
 
-    if (this.base === 'laravel') {
-      return this.laravelService.getOneSliderItem(id)
-    }
-    else if (this.base === 'firebase') {
-      //return this.firebaseService.getOneSliderItem(id)
-    }
-
-    //else return false;
-
-    // switch (this.base) {
-    //   case 'laravel':
-    //     return this.laravelService.getOneSliderItem(id)
-    //     break;
-    //   case 'firebase':
-    //     break;
-    // }
-
+  getEvents() {
+    return this.worker.getEvents();
   }
 
 }

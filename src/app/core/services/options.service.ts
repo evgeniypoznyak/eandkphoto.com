@@ -14,11 +14,11 @@ export class OptionsService {
       path: '/',
       animation: ''
     },
-    about: {
-      name: 'About',
-      path: '/about',
-      animation: ''
-    },
+    // about: {
+    //   name: 'About',
+    //   path: '/about',
+    //   animation: ''
+    // },
     contact: {
       name: 'Contact',
       path: '/contact',

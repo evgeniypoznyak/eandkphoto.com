@@ -6,12 +6,14 @@ import { OptionsService } from './options.service';
 export class MenuService {
 
   menu = this._options.menu;
+  fetched: boolean = false;
 
-  constructor(private _connectService: ConnectService, private _options: OptionsService) {
+  constructor(private _connect: ConnectService, private _options: OptionsService) {
 
-    this._connectService.getEvents().subscribe((data)=>{
+    this._connect.getEvents().subscribe((data)=>{
       this.menu.events = data;
-      console.log(this.menu);
+      this.fetched = true;
+      console.log(this.menu.events);
     })
 
   }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MultiItemsModalComponent } from './multi-items-modal.component';
+import { MultiItemsMonthsComponent } from './multi-items-months.component';
 
-describe('MultiItemsModalComponent', () => {
-  let component: MultiItemsModalComponent;
-  let fixture: ComponentFixture<MultiItemsModalComponent>;
+describe('MultiItemsMonthsComponent', () => {
+  let component: MultiItemsMonthsComponent;
+  let fixture: ComponentFixture<MultiItemsMonthsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultiItemsModalComponent ]
+      declarations: [ MultiItemsMonthsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MultiItemsModalComponent);
+    fixture = TestBed.createComponent(MultiItemsMonthsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

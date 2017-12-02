@@ -11,18 +11,24 @@ export class ModalComponent implements OnInit {
   // @Input() modal: any;
   modalOpen: boolean = false;
   menu = this.menuService.menu;
-
-  constructor(private menuService: MenuService) { }
+  menuIsReady: boolean = this.menuService.fetched;
+  openEvents: boolean = false;
+  hidden: true;
+  constructor(private menuService: MenuService,) { }
 
   ngOnInit() {
-    // this.menu = this.menuService.menu;
-  //   console.log(this.menu);
 
   }
 
   openCloseModal() {
+    if (!this.menuIsReady) {
+      this.menuIsReady = this.menuService.fetched;
+    }
     this.modalOpen = !this.modalOpen;
   }
 
+  showEvents() {
+    this.openEvents = true;
+  }
 
 }

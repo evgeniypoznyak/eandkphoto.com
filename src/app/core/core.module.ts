@@ -24,7 +24,10 @@ import { SliderComponent } from './slider/slider.component';
 import { HeaderComponent } from './header/header.component';
 import { MultiItemsComponent } from './header/multi-items/multi-items.component';
 import { ModalComponent } from './modal/modal.component';
-import { MultiItemsModalComponent } from './modal/multi-items-modal/multi-items-modal.component';
+import { MakeNamePrettyPipe } from './pipes/make-name-pretty.pipe';
+import { MultiItemsMonthsComponent } from './modal/multi-items-months/multi-items-months.component';
+import { MultiItemsEventsComponent } from './modal/multi-items-events/multi-items-events.component';
+import { MultiItemsYearsComponent } from './modal/multi-items-years/multi-items-years.component';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { MultiItemsModalComponent } from './modal/multi-items-modal/multi-items-
     ModalComponent,
     CleanMonthPipe,
     ObjectKeysPipe,
-    MultiItemsModalComponent,
+    MakeNamePrettyPipe,
+    MultiItemsMonthsComponent,
+    MultiItemsEventsComponent,
+    MultiItemsYearsComponent,
   ],
 
   imports: [

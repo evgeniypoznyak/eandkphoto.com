@@ -8,26 +8,52 @@
 >
   <!-- Modal content -->
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <span class="close" (click)="openCloseModal()" >&times;</span>
+    <span class="close" (click)="openCloseModal()">&times;</span>
 
     <a [routerLink]="[menu.home.path]">{{menu.home.name}}</a>
+    <br>
     <a [routerLink]="[menu.contact.path]">{{menu.contact.name}}</a>
-    <a [routerLink]="[menu.about.path]">{{menu.about.name}}</a>
-
-
     <ul>
       <a [routerLink]="[menu.portfolio.path]">{{menu.portfolio.name}}</a>
+
       <li>
-        <a [routerLink]="[menu.portfolio.family.path]">{{menu.portfolio.family.name}}</a>
-        <a [routerLink]="[menu.portfolio.portraits.path]">{{menu.portfolio.portraits.name}}</a>
+        &nbsp;&nbsp;&nbsp; <a [routerLink]="[menu.portfolio.family.path]">{{menu.portfolio.family.name}}</a><br>
       </li>
     </ul>
 
-    <ul>
-      <a href=""></a>
+    <!--  EVENTS START  -->
+
+    <ul *ngIf="menuIsReady">
+      <a [routerLink]="'/events'">Events</a>
+      <li *ngFor="let yearItem of menu.events | keys ">
+        &nbsp;&nbsp;&nbsp; <a [routerLink]="['/events/', yearItem]">{{yearItem}}</a>
+        <ul>
+          <li *ngFor="let monthItem of menu.events[yearItem] | keys ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a
+              (mouseleave)="hidden = !hidden"
+              (mouseenter)="hidden = !hidden"
+              [routerLink]="['/events/', yearItem, monthItem | month | lowercase ]">{{ monthItem | month }}</a>
+            <ul
+              [ngClass]="{'openEvents' : openEvents}"
+            >
+              <li *ngFor="let index of menu.events[yearItem][monthItem] | keys ">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a
+                  [routerLink]="[
+                                  '/events/',
+                                  yearItem,
+                                  monthItem | month | lowercase,
+                                  menu.events[yearItem][monthItem][index].name
+                                 ]">{{ menu.events[yearItem][monthItem][index].name | makePretty }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
 
-
+    <!--  EVENTS END  -->
 
   </div>
 </div>

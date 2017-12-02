@@ -10,7 +10,7 @@ export class CleanMonthPipe implements PipeTransform {
     if (!value) {
       return null;
     }
-    return value.split('-').slice(1);
+    return value.split('-').slice(1)[0];
   }
 
 }

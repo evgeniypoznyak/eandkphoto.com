@@ -13,7 +13,7 @@ export class ModalComponent implements OnInit {
   menu = this.menuService.menu;
   menuIsReady: boolean = this.menuService.fetched;
   openEvents: boolean = false;
-  hidden: true;
+  hidden: boolean = true;
   constructor(private menuService: MenuService,) { }
 
   ngOnInit() {

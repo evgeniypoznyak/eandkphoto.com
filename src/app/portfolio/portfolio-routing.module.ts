@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PortfolioComponent } from './portfolio.component';
-import { PortfolioItemComponent } from './portfolio-item/portfolio-item.component';
+import { CategoryComponent} from './category/category.component';
 
 const routes: Routes = [
   {
     path: '', component: PortfolioComponent,
     children: [
-      { path: ':category', component: PortfolioItemComponent },
+      { path: ':category', component: CategoryComponent },
     ]
   }
 ];

@@ -1,4 +1,16 @@
-<p>
-  events-form works!
-</p>
-<form action="#"></form>
+<br>
+<hr>
+<form [formGroup]="eventForm" (submit)="false">
+  Name: <input type="text" id="name">
+  <br><br>
+  Date: <input type="date" id="date">
+  <br><br>
+  Zip: <input type="file" id="file">
+  <br><br>
+  Location: <input type="text" id="location">
+  <br><br>
+  Description: <textarea id="description"></textarea>
+  <br><br>
+  Submit <input type="submit">
+</form>
+

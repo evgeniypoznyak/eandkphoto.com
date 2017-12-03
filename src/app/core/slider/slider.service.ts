@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import 'rxjs/Rx';
 import { ConnectService } from '../services/http/connect.service';
 
 

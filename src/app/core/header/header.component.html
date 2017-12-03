@@ -1,40 +1,44 @@
 <header>
   <nav>
     <ul>
-<!-- HOME -->
+
+      <!-- HOME -->
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a [routerLink]="['/']">Home</a>
       </li>
-<!-- END HOME -->
+      <!-- END HOME -->
 
-<!-- PORTFOLIO -->
+      <!-- PORTFOLIO -->
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a [routerLink]="['/portfolio']">Portfolio</a>
       </li>
-<!-- END PORTFOLIO -->
+      <!-- END PORTFOLIO -->
 
-<!-- EVENTS -->
+      <!-- EVENTS -->
       <li routerLinkActive="active">
         <a [routerLink]="['/events']">Events</a>
         <ul>
           <!--<li *ngFor="let event of events"><a [routerLink]="[-->
-                                                          <!--'/events',-->
-                                                          <!--event.year,-->
-                                                          <!--event.month,-->
-                                                          <!--event.event[0]-->
-                                                         <!--]">{{event.event[0]}}</a>-->
+          <!--'/events',-->
+          <!--event.year,-->
+          <!--event.month,-->
+          <!--event.event[0]-->
+          <!--]">{{event.event[0]}}</a>-->
           <!--</li>-->
         </ul>
       </li>
+      <!-- END EVENTS -->
+
+
+      <!-- ADMIN -->
+      <app-multi-items
+        [routerLinkFromHeader]="{link: '/admin', name: 'Admin'}"
+        [itemsCollection]="{items: [{name: 'Events Form'}], itemsLink: '/admin/form-events'}"
+      ></app-multi-items>
+      <!-- END ADMIN -->
+
 
     </ul>
-<!-- END EVENTS -->
-
-    <!-- <app-multi-items
-       [routerLinkFromHeader]="{link: '/some-link', name: '404'}"
-       [itemsCollection]="{items: portfolio, itemsLink: '/some-link'}"
-     ></app-multi-items>-->
-
   </nav>
 
 </header>

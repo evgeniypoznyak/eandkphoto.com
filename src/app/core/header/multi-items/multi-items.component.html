@@ -11,8 +11,9 @@
 
     <li *ngFor="let item of itemsCollection.items"
         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
-      <a class="items"  [routerLink]="[itemsCollection.itemsLink, item.id ]">{{item.name}}</a>
+      <a class="items"  [routerLink]="[itemsCollection.itemsLink ]">{{item.name}}</a>
     </li>
+
   </ul>
 
 </li>

@@ -1,3 +1,18 @@
-<p>
-  multi-items-years works!
-</p>
+<ul><a [routerLink]="['/events/', yearStr | lowercase ]">{{ yearStr }}</a>
+  <li *ngFor="let monthItem of yearArr | keys ">
+
+    <a [routerLink]="[
+    '/events/',
+    yearStr,
+    monthItem | month | lowercase
+     ]">{{ monthItem | month }}</a>
+
+    <app-multi-items-months
+      [monthStr]="monthItem"
+      [yearStr]="yearStr"
+      [monthArr]="yearArr[monthItem]"
+      [events]="events"
+    ></app-multi-items-months>
+
+  </li>
+</ul>

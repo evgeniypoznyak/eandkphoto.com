@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-multi-items-years',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./multi-items-years.component.css']
 })
 export class MultiItemsYearsComponent implements OnInit {
+
+  @Input() yearStr: string;
+  @Input() yearArr: any;
+  @Input() events: any;
 
   constructor() { }
 

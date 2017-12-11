@@ -31,14 +31,19 @@ export class OptionsService {
       path: '/portfolio',
       animation: ''
     },
-    events: {}
+    admin: [
+      { name: 'Create Event', path: '/admin/create-event' },
+      { name: 'Create User', path: '/admin/create-user' },
+    ],
+    events: {},
   }
-
 
   laravel = {
     generalApi: '',
     sliderApi: 'http://data.eandkphoto.loc/api/slider/',
     eventsApi: 'http://data.eandkphoto.loc/api/events/',
+    createUserApi: 'http://data.eandkphoto.loc/api/create-user/',
+    refreshTokenApi: 'http://data.eandkphoto.loc/api/refresh-token/',
     optHeaders: {
       optGet: {
         headers: new HttpHeaders(
@@ -48,7 +53,25 @@ export class OptionsService {
           }
           // можно массив передавать, только надо настроить Cors.php
         )
-      }
+      },
+      optPut: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
+      optPost: {
+        headers: new HttpHeaders(
+          {
+            'Content-Type': 'application/json',
+            'X-Requested-With': ['XMLHttpRequest']
+          }
+          // можно массив передавать, только надо настроить Cors.php
+        )
+      },
     }
   }
 

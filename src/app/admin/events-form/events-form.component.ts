@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Upload } from '../../core/shared/Upload';
+import { UploadService } from '../../core/services/upload.service';
+import { ConnectService } from '../../core/services/http/connect.service';
 
 @Component({
   selector: 'app-events-form',
@@ -9,12 +12,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class EventsFormComponent implements OnInit {
 
   eventForm: FormGroup;
-  constructor() { }
+  selectedFiles: FileList;
+  currentUpload: Upload;
+  date: Date;
+  year: number;
+  month: any;
+  sql: string;
+
+
+  constructor(private upSvc: UploadService, private _connect: ConnectService) { }
 
   ngOnInit() {
 
     this.eventForm = new FormGroup({
-      'name': new FormControl(null),
+      // 'name': new FormControl(null),
       'date': new FormControl(null),
       'zip': new FormControl(null),
       'location': new FormControl(null),
@@ -22,5 +33,55 @@ export class EventsFormComponent implements OnInit {
     });
 
   }
+
+  onSubmit() {
+    let file = this.selectedFiles.item(0)
+
+    this.parseDate(this.eventForm.value.date);
+    this.currentUpload = new Upload(file);
+
+    console.log(this.currentUpload);
+    this.upSvc.pushUpload(this.currentUpload)
+
+
+    let body = {
+      htmlDate: this.date,
+      year: this.year,
+      month: this.month,
+      file: file,
+      name: this.eventForm.value.name,
+      location: this.eventForm.value.location,
+      description: this.eventForm.value.description,
+      sql: this.date.toISOString().slice(0, 19).replace('T', ' '),
+    };
+
+
+    this._connect.addEvent(body)
+    /*.subscribe((data)=>{
+          console.log(data);
+        })*/
+
+  }
+
+  detectFiles(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  parseDate(htmlDate) {
+    this.date = new Date(htmlDate);
+   // this.sql = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    this.year = this.date.getFullYear()
+    this.month = this.date.getMonth()
+    let monthString = this.date.toLocaleString("en-us", { month: "long" }).toLowerCase();
+
+    this.month = this.date.getMonth() + 1;
+    if (this.month < 10) {
+      this.month = '0' + this.month.toString();
+    }
+    this.month = this.month + '-' + monthString;
+
+    +1 + '-' + this.date.toLocaleString('en-us', { month: 'long' }).toLowerCase();
+  }
+
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { EventsService } from './services/events.service';
@@ -28,6 +28,8 @@ import { MakeNamePrettyPipe } from './pipes/make-name-pretty.pipe';
 import { MultiItemsMonthsComponent } from './modal/multi-items-months/multi-items-months.component';
 import { MultiItemsEventsComponent } from './modal/multi-items-events/multi-items-events.component';
 import { MultiItemsYearsComponent } from './modal/multi-items-years/multi-items-years.component';
+import { UploadService } from './services/upload.service';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -45,16 +47,19 @@ import { MultiItemsYearsComponent } from './modal/multi-items-years/multi-items-
     MultiItemsMonthsComponent,
     MultiItemsEventsComponent,
     MultiItemsYearsComponent,
+    LoginComponent,
   ],
 
   imports: [
     CommonModule,
     CoreRoutingModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CoreRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HeaderComponent,
     FooterComponent,
@@ -70,6 +75,7 @@ import { MultiItemsYearsComponent } from './modal/multi-items-years/multi-items-
     ConnectService,
     FirebaseService,
     LaravelService,
+    UploadService,
   ],
 
 })

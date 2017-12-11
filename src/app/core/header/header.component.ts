@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OptionsService } from '../services/options.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  menu = this._options.menu;
+  admin = this._options.menu.admin;
+
+  constructor(private _options: OptionsService) { }
 
   ngOnInit() {
 

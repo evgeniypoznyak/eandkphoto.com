@@ -32,4 +32,23 @@ export class ConnectService {
     return this.worker.getEvents();
   }
 
+  addEvent(body){
+    return this.worker.addEvent(body);
+  }
+
+  onCreateUser(username, email, password) {
+    return this.worker.onCreateUser(username, email, password);
+  }
+
+  isAuth(){
+    this.worker.isAuth();
+
+    // true or false
+    return this.worker.subAuth;
+  }
+
+  refreshToken(){
+    return this.worker.refreshToken();
+  }
+
 }

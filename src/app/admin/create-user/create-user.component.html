@@ -1,0 +1,24 @@
+<div>
+  <h3>Create a New User</h3>
+  <form [formGroup]="createForm" (ngSubmit)="onCreateUser()">
+
+    <div>
+      <label for="name">Name: </label>
+      <input formControlName="name" type="text" id="name" name="name">
+    </div>
+    <div>
+      <label for="email">Email: </label>
+      <input formControlName="email" type="email" id="email" name="email">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input formControlName="password" type="password" id="password" name="password">
+    </div>
+    <br>
+    <div>
+      <button type="submit">Register</button>
+    </div>
+
+  </form>
+</div>
+<h1 *ngIf="check"> {{ check }}</h1>

@@ -9,9 +9,9 @@
     class="under"
     [ngClass]="{'hidden': hidden}">
 
-    <li *ngFor="let item of itemsCollection.items"
+    <li *ngFor="let item of itemsCollection"
         routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
-      <a class="items"  [routerLink]="[itemsCollection.itemsLink ]">{{item.name}}</a>
+      <a class="items"  [routerLink]="[item.path ]">{{item.name}}</a>
     </li>
 
   </ul>

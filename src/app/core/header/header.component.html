@@ -8,6 +8,8 @@
       </li>
       <!-- END HOME -->
 
+
+
       <!-- PORTFOLIO -->
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a [routerLink]="['/portfolio']">Portfolio</a>
@@ -29,12 +31,17 @@
       </li>
       <!-- END EVENTS -->
 
+      <!-- LOGIN -->
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/evgeniy']">Login</a>
+      </li>
+      <!-- END LOGIN -->
 
       <!-- ADMIN -->
       <app-multi-items
         [routerLinkFromHeader]="{link: '/admin', name: 'Admin'}"
-        [itemsCollection]="{items: [{name: 'Events Form'}], itemsLink: '/admin/form-events'}"
-      ></app-multi-items>
+        [itemsCollection]="admin">
+      </app-multi-items>
       <!-- END ADMIN -->
 
 

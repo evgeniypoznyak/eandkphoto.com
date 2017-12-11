@@ -9,12 +9,13 @@ export class MultiItemsComponent implements OnInit {
 
 
   @Input() routerLinkFromHeader: { link: string, name: string};
-  @Input() itemsCollection: { items: any, itemsLink: string};
+  @Input() itemsCollection: { items: {} };
   hidden: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

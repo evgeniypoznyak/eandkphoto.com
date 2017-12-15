@@ -52,7 +52,7 @@ export class EventsFormComponent implements OnInit {
       name: this.eventForm.value.name,
       location: this.eventForm.value.location,
       description: this.eventForm.value.description,
-      sql: this.date.toISOString().slice(0, 19).replace('T', ' '),
+      sqlTime: this.date.toISOString().slice(0, 19).replace('T', ' '),
     };
 
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ConnectService } from '../services/http/connect.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-
-  constructor() { }
+  constructor(private _connect: ConnectService, private loginService: LoginService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -20,8 +21,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-
+  onLoginUser() {
+    this._connect.onLoginUser(this.loginForm.value.email, this.loginForm.value.password).subscribe((res) => {
+      this.loginService.isAuth.next(true);
+    })
   }
-
 }

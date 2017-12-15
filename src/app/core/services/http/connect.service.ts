@@ -1,18 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { OptionsService } from '../options.service';
 import { LaravelService } from './laravel.service';
 import { FirebaseService } from './firebase.service';
+import { LoginService } from '../login.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
-export class ConnectService {
+export class ConnectService implements OnInit{
 
   base = this._optionsService.base;
 
   worker: any;
 
+  subcription: Subscription;
+
   constructor(private _optionsService: OptionsService,
               private _laravelService: LaravelService,
-              private _firebaseService: FirebaseService) {
+              private _firebaseService: FirebaseService,
+              private _loginService: LoginService) {
 
     switch (this._optionsService.base) {
       case 'laravel':
@@ -22,6 +27,10 @@ export class ConnectService {
         this.worker = _firebaseService;
         break;
     }
+  }
+
+  ngOnInit(){
+
   }
 
   getOneSliderItem(id: number) {
@@ -36,19 +45,52 @@ export class ConnectService {
     return this.worker.addEvent(body);
   }
 
+  getOneEvent(data) {
+    return this.worker.getOneEvent(data);
+  }
+
   onCreateUser(username, email, password) {
     return this.worker.onCreateUser(username, email, password);
   }
 
   isAuth(){
-    this.worker.isAuth();
+  return this.worker.isAuth();
+   // return this.worker.subAuth;
+  }
 
-    // true or false
-    return this.worker.subAuth;
+  canActivatePromise() {
+      const promise = new Promise((resolve, reject)=>{
+        this.subcription = this.isAuth().subscribe((result)=>{
+       //   console.log(result);
+          this.worker.subAuth.next(true);
+          resolve(true);
+        }, (error) => {
+          console.error(error);
+          reject(false)
+        })
+      })
+    return promise;
   }
 
   refreshToken(){
     return this.worker.refreshToken();
+  }
+
+  checkPromise(){
+    const promise = new Promise((resolve, reject)=>{
+      setTimeout(() => {
+        resolve(true);
+      },2000)
+    })
+    return promise;
+  }
+
+  onLoginUser(email: string, password: string){
+    return this.worker.onLoginUser(email, password);
+  }
+
+  onLogOut(){
+    this.worker.onLogOut();
   }
 
 }

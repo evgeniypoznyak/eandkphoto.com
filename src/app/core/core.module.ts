@@ -14,9 +14,14 @@ import { FirebaseService } from './services/http/firebase.service';
 import { LaravelService } from './services/http/laravel.service';
 import { SliderService } from './slider/slider.service';
 import { OptionsService } from './services/options.service';
+import { LoginService } from './services/login.service';
+import { EventResolverService } from '../events/event-resolver.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { UploadService } from './services/upload.service';
 
 import { CleanMonthPipe } from './pipes/clean-month.pipe';
 import { ObjectKeysPipe } from './pipes/object.keys.pipe';
+import { MakeNamePrettyPipe } from './pipes/make-name-pretty.pipe';
 
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,11 +29,9 @@ import { SliderComponent } from './slider/slider.component';
 import { HeaderComponent } from './header/header.component';
 import { MultiItemsComponent } from './header/multi-items/multi-items.component';
 import { ModalComponent } from './modal/modal.component';
-import { MakeNamePrettyPipe } from './pipes/make-name-pretty.pipe';
 import { MultiItemsMonthsComponent } from './modal/multi-items-months/multi-items-months.component';
 import { MultiItemsEventsComponent } from './modal/multi-items-events/multi-items-events.component';
 import { MultiItemsYearsComponent } from './modal/multi-items-years/multi-items-years.component';
-import { UploadService } from './services/upload.service';
 import { LoginComponent } from './login/login.component';
 
 
@@ -76,6 +79,9 @@ import { LoginComponent } from './login/login.component';
     FirebaseService,
     LaravelService,
     UploadService,
+    LoginService,
+    EventResolverService,
+    AuthGuardService,
   ],
 
 })

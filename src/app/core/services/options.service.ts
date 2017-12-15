@@ -42,6 +42,8 @@ export class OptionsService {
     generalApi: '',
     sliderApi: 'http://data.eandkphoto.loc/api/slider/',
     eventsApi: 'http://data.eandkphoto.loc/api/events/',
+ //   getOneEventApi: 'http://data.eandkphoto.loc/api/events/:year/:month/:event',
+    loginUserApi: 'http://data.eandkphoto.loc/api/login/',
     createUserApi: 'http://data.eandkphoto.loc/api/create-user/',
     refreshTokenApi: 'http://data.eandkphoto.loc/api/refresh-token/',
     optHeaders: {

@@ -4,6 +4,7 @@ import { EventsComponent } from './events.component';
 import { EventComponent } from './event/event.component';
 import { YearComponent } from './year/year.component';
 import { MonthComponent } from './month/month.component';
+import { EventResolverService } from './event-resolver.service';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: ':year', component: YearComponent },
       { path: ':year/:month', component: MonthComponent },
-      { path: ':year/:month/:event', component: EventComponent }
+      { path: ':year/:month/:event', component: EventComponent, resolve: {eventResolved: EventResolverService} }
     ]
   }
 ];

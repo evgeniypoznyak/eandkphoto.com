@@ -31,16 +31,6 @@ export class CreateUserComponent implements OnInit {
     )
 
 
-    // todo is auth полностью работает, надо его где-то применять
-    // this._connect.isAuth().subscribe((res)=>{
-    //   this.check = res
-    //   console.log(res);
-    // }, (err) => {
-    //   this.check = err
-    //   console.log(err);
-    // })
-
-
   }
 
 

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { ConnectService } from './http/connect.service';
-// import { Subscription } from 'rxjs/Subscription';
 
 
 @Injectable()
@@ -14,7 +13,6 @@ export class AuthGuardService implements CanActivate {
 
     return this._connect.canActivatePromise()
       .then(value => {
-      //console.log(value);
       if (value != false) {
         this._connect.subcription.unsubscribe();
         return true;

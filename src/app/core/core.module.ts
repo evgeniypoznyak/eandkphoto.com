@@ -27,7 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { HeaderComponent } from './header/header.component';
-import { MultiItemsComponent } from './header/multi-items/multi-items.component';
+import { MultiItemsLvlOneComponent} from './header/multi-items-lvl-one/multi-items-lvl-one.component';
 import { ModalComponent } from './modal/modal.component';
 import { MultiItemsMonthsComponent } from './modal/multi-items-months/multi-items-months.component';
 import { MultiItemsEventsComponent } from './modal/multi-items-events/multi-items-events.component';
@@ -42,7 +42,7 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     FooterComponent,
     SliderComponent,
-    MultiItemsComponent,
+    MultiItemsLvlOneComponent,
     ModalComponent,
     CleanMonthPipe,
     ObjectKeysPipe,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MultiItemsComponent } from './multi-items.component';
+import { MultiItemsLvlOneComponent } from './multi-items-lvl-one.component';
 
-describe('MultiItemsComponent', () => {
-  let component: MultiItemsComponent;
-  let fixture: ComponentFixture<MultiItemsComponent>;
+describe('MultiItemsLvlOneComponent', () => {
+  let component: MultiItemsLvlOneComponent;
+  let fixture: ComponentFixture<MultiItemsLvlOneComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MultiItemsComponent ]
+      declarations: [ MultiItemsLvlOneComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MultiItemsComponent);
+    fixture = TestBed.createComponent(MultiItemsLvlOneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-multi-items',
-  templateUrl: './multi-items.component.html',
-  styleUrls: ['./multi-items.component.css']
+  selector: 'app-multi-items-lvl-one',
+  templateUrl: './multi-items-lvl-one.component.html',
+  styleUrls: ['./multi-items-lvl-one.component.css']
 })
-export class MultiItemsComponent implements OnInit {
+export class MultiItemsLvlOneComponent implements OnInit {
 
 
   @Input() routerLinkFromHeader: { link: string, name: string};

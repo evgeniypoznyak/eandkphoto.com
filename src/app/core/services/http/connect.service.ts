@@ -55,13 +55,11 @@ export class ConnectService implements OnInit{
 
   isAuth(){
   return this.worker.isAuth();
-   // return this.worker.subAuth;
   }
 
   canActivatePromise() {
       const promise = new Promise((resolve, reject)=>{
         this.subcription = this.isAuth().subscribe((result)=>{
-       //   console.log(result);
           this.worker.subAuth.next(true);
           resolve(true);
         }, (error) => {

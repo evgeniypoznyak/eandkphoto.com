@@ -1,0 +1,64 @@
+
+
+/* SMALL GALLERY */
+#gallery {
+}
+.photos {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.photos img {
+  /* display: none;*/
+  opacity: 0;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  background-color: #aaaaaa;
+  cursor: pointer;
+  -webkit-box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
+  transition: all 0.5s;
+}
+
+.photos img:hover {
+  transform: scale(1.1);
+}
+
+.visible {
+  height: auto !important;
+  width: auto !important;
+  opacity: 1 !important;
+  margin: 5px !important;
+}
+
+/* BUTTONS */
+#back, #forv {
+  cursor: pointer;
+  position: relative;
+  top: 100px;
+  z-index: 1;
+}
+#back {
+  left: 2%;
+}
+#forv {
+  right: -75%;
+}
+
+
+/* BIGIMAGE */
+.bigImageWrap {
+  height: 500px;
+}
+
+.bigImage {
+  position: relative;
+  left: 26%;
+  max-height: 500px;
+  -webkit-box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
+}
+

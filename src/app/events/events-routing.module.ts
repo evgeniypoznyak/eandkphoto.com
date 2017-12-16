@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: ':year', component: YearComponent },
       { path: ':year/:month', component: MonthComponent },
-      { path: ':year/:month/:event', component: EventComponent, resolve: {eventResolved: EventResolverService} }
+      { path: ':year/:month/:event', component: EventComponent, resolve: { eventsFromServer: EventResolverService } }
     ]
   }
 ];

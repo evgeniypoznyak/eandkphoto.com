@@ -75,13 +75,17 @@ export class LaravelService {
 
   isAuth() {
     const token = localStorage.getItem('token');
-    return this._http.post<any>(this.api.refreshTokenApi, {
-      token: token,
-    }, this.postHeaders)
-      .do(
-        (data) => {
-          localStorage.setItem('token', data.token);
-        });
+    if (token) {
+      return this._http.post<any>(this.api.refreshTokenApi, {
+        token: token,
+      }, this.postHeaders)
+        .do(
+          (data) => {
+            localStorage.setItem('token', data.token);
+          });
+    }
+    return new Subject();
+
   }
 
 
@@ -115,6 +119,7 @@ export class LaravelService {
       (data) => {
         this.subAuth.next(true);
         localStorage.setItem('token', data.token);
+        this._router.navigate(['/'])
       });
   }
 

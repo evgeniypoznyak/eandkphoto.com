@@ -12,7 +12,7 @@ export class ConnectService implements OnInit{
 
   worker: any;
 
-  subcription: Subscription;
+  subscription: Subscription;
 
   constructor(private _optionsService: OptionsService,
               private _laravelService: LaravelService,
@@ -57,9 +57,11 @@ export class ConnectService implements OnInit{
   return this.worker.isAuth();
   }
 
+
+  // разобраться когда будет время
   canActivatePromise() {
       const promise = new Promise((resolve, reject)=>{
-        this.subcription = this.isAuth().subscribe((result)=>{
+        this.subscription = this.isAuth().subscribe((result)=>{
           this.worker.subAuth.next(true);
           resolve(true);
         }, (error) => {
@@ -68,6 +70,10 @@ export class ConnectService implements OnInit{
         })
       })
     return promise;
+  }
+
+  subAuth(){
+    return this.worker.subAuth;
   }
 
   refreshToken(){

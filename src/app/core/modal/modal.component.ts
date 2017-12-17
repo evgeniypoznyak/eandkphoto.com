@@ -1,29 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MenuService } from '../services/menu.service';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ConnectService } from '../services/http/connect.service';
+import { OptionsService } from '../services/options.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
 
-  // @Input() modal: any;
   modalOpen: boolean = false;
-  menu = this.menuService.menu;
-  menuIsReady: boolean = this.menuService.fetched;
+  menu = this._options.menu;
   openEvents: boolean = false;
   hidden: boolean = true;
-  constructor(private menuService: MenuService,) { }
+  eventsSubscription: Subscription;
+
+  constructor(private _connect: ConnectService, private _options: OptionsService) { }
 
   ngOnInit() {
+    // То что я загружаю через фолдер
+   this.eventsSubscription = this._connect.getEvents().subscribe((data)=>{
+      this.menu.events = data;
+      console.log(this.menu.events);
+    })
+  }
 
+  ngOnDestroy(){
+    this.eventsSubscription.unsubscribe();
   }
 
   openCloseModal() {
-    if (!this.menuIsReady) {
-      this.menuIsReady = this.menuService.fetched;
-    }
     this.modalOpen = !this.modalOpen;
   }
 

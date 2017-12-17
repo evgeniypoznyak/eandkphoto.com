@@ -23,7 +23,7 @@
     </ul>
 
     <!--  EVENTS START  -->
-    <ul *ngIf="menuIsReady">
+    <ul *ngIf="modalOpen">
       <a [routerLink]="'/events'">Events</a>
       <li *ngFor="let yearItem of menu.events | keys ">
         <app-multi-items-years

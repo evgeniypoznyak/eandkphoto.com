@@ -8,7 +8,6 @@ import { CoreRoutingModule } from './core-routing.module';
 import { EventsService } from './services/events.service';
 import { PortfolioService } from './services/portfolio.service';
 import { ModalService } from './modal/modal.service';
-import { MenuService } from './services/menu.service';
 import { ConnectService } from './services/http/connect.service';
 import { FirebaseService } from './services/http/firebase.service';
 import { LaravelService } from './services/http/laravel.service';
@@ -73,7 +72,6 @@ import { LoginComponent } from './login/login.component';
     PortfolioService,
     SliderService,
     ModalService,
-    MenuService,
     OptionsService,
     ConnectService,
     FirebaseService,

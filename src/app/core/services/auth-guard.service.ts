@@ -14,15 +14,15 @@ export class AuthGuardService implements CanActivate {
     return this._connect.canActivatePromise()
       .then(value => {
       if (value != false) {
-        this._connect.subcription.unsubscribe();
+        this._connect.subscription.unsubscribe();
         return true;
       } else {
-        this._connect.subcription.unsubscribe();
+        this._connect.subscription.unsubscribe();
         this._router.navigate(['/']);
         return false
       }
     }, reason => {
-      this._connect.subcription.unsubscribe();
+      this._connect.subscription.unsubscribe();
       this._router.navigate(['/']);
       return false;
     });

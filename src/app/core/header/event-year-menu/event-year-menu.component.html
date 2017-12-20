@@ -1,17 +1,25 @@
- <ul
-    class="under"
-    [ngClass]="{'hidden': isHidden}">
+<ul
+  class="under"
+  [ngClass]="{'hidden': isHidden}">
 
-    <li>
-      <a
-        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-        class="items"  [routerLink]="'/a'">a</a>
-    </li>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+      *ngFor="let yearString of events | keys">
+    <a
+      class="items" [routerLink]="'/events/' + yearString"> {{ yearString }} </a>
 
-    <li>
-      <a
-        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-        class="items"  [routerLink]="'/b'">b</a>
-    </li>
+    <app-event-month-menu
+      [yearStr]="yearString"
+      [events]="events"
+      [yearArr]="events[yearString]"
+    >
+    </app-event-month-menu>
+
+  </li>
+
+  <!--<li>-->
+  <!--<a-->
+  <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"-->
+  <!--class="items"  [routerLink]="'/b'">b</a>-->
+  <!--</li>-->
 
 </ul>

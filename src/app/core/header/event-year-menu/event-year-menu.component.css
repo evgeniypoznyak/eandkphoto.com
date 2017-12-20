@@ -7,13 +7,14 @@ ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 }
 
 li {
   cursor: pointer;
-  display: block;
-  display: inline-block;
+  /*display: block;*/
+  /*display: inline-block;*/
   padding: 10px;
   background-color: darkolivegreen;
   transition: all 0.2s;
@@ -49,7 +50,7 @@ a {
 .under {
   position: absolute;
   z-index: 1;
-  bottom: -65px;
+  top: 10px;
   left: -10px;
   padding: 0px;
   margin: 0px;

@@ -22,7 +22,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     // То что я загружаю через фолдер
    this.eventsSubscription = this._connect.getEvents().subscribe((data)=>{
       this.menu.events = data;
-      console.log(this.menu.events);
+  //    console.log(this.menu.events);
     })
   }
 

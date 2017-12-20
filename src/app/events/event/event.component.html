@@ -2,6 +2,13 @@
 
   <div class="bigImageWrap">
 
+    <div style="display: none">
+      <img
+        *ngFor="let large of bigImagesArray"
+        src="{{ large }}" alt=""
+      >
+    </div>
+
     <div *ngIf="bigImage; else description_content">
 
       <img class="bigImage" src="{{ bigImage }}" alt="">
@@ -17,21 +24,23 @@
 
   </div>
 
-
-  <div>
-    <input id="back" type="button" (click)="onBack()" value="Назад">
-    <input id="forv" type="button" (click)="onForward()" value="Вперед">
+  <div class="buttons">
+    <input id="back" type="button" (click)="onBack()" value="<">
+    <input id="forv" type="button" (click)="onForward()" value=">">
   </div>
 
   <div id="gallery">
     <div class="photos">
+
       <img
         [ngClass]="{ visible : (i >= picturesStart ) && ( i <= picturesEnd) }"
         *ngFor="let small of events.dir.small; let i = index"
         src="{{ small }}" alt=""
         (click)="onShowBigImage(i)"
       >
+
     </div>
+
   </div>
 
 </div>

@@ -3,7 +3,6 @@ import { sliderTrigger, textSliderTrigger } from './animations';
 import { ISlider } from './ISlider';
 import { SliderService } from './slider.service';
 import { slider1 } from './slider-content.service';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-slider',

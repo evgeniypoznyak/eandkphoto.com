@@ -32,6 +32,9 @@ import { MultiItemsMonthsComponent } from './modal/multi-items-months/multi-item
 import { MultiItemsEventsComponent } from './modal/multi-items-events/multi-items-events.component';
 import { MultiItemsYearsComponent } from './modal/multi-items-years/multi-items-years.component';
 import { LoginComponent } from './login/login.component';
+import { EventYearMenuComponent } from './header/event-year-menu/event-year-menu.component';
+import { EventMonthMenuComponent } from './header/event-month-menu/event-month-menu.component';
+import { EventMenuComponent } from './header/event-menu/event-menu.component';
 
 
 @NgModule({
@@ -50,6 +53,9 @@ import { LoginComponent } from './login/login.component';
     MultiItemsEventsComponent,
     MultiItemsYearsComponent,
     LoginComponent,
+    EventYearMenuComponent,
+    EventMonthMenuComponent,
+    EventMenuComponent,
   ],
 
   imports: [

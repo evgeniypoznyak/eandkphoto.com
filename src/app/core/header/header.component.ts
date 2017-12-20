@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   fetched: boolean = false;
   eventsSubscription: Subscription;
   subAuthSubscription: Subscription;
+  hidden = true;
 
 
   constructor(private _options: OptionsService, private _loginService: LoginService, private _connect: ConnectService) { }
@@ -45,13 +46,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // То что я загружаю через фолдер
     this.eventsSubscription = this._connect.getEvents().subscribe((data) => {
       this.menu.events = data;
+  //    console.log(data);
       this.fetched = true;
+      console.log(this.menu.events);
     })
   }
 
   ngOnDestroy() {
     this.eventsSubscription.unsubscribe()
-  //  this.subAuthSubscription.unsubscribe()
   }
 
   onLogOut() {

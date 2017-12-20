@@ -20,36 +20,46 @@ export class EventComponent implements OnInit {
 
   // For big image
   bigImage: any = false;
-
+  bigImagesArray = [];
 
   constructor(private _route: ActivatedRoute, private _connect: ConnectService) { }
 
   ngOnInit() {
     this._route.data.subscribe((data: Data) => {
-      console.log(data);
+   //   console.log(data);
       this.check = true;
       this.events = data.eventsFromServer;
-      console.log(this.events);
+  //    console.log(this.events);
       this.picturesCount = this.events.dir.small.length
       this.setEndAndStartPictures(this.picturesCount)
     })
-
+    this.getImagesAccordingIndex();
   }
 
   onBack(){
     this.picturesStart = this.picturesStart - this.pictureCycle;
     this.picturesEnd = this.picturesEnd - this.pictureCycle;
     if (this.picturesStart < 0) {
-      this.picturesStart = 0
-      this.picturesEnd = this.pictureCycle - 1;
+      this.picturesStart = this.picturesCount - this.pictureCycle + 1;
+      this.picturesEnd = this.picturesStart + this.pictureCycle - 1;
     }
+    this.getImagesAccordingIndex();
   }
 
   onForward(){
     if (this.picturesEnd < this.picturesCount) {
       this.picturesStart = this.picturesStart + this.pictureCycle;
       this.picturesEnd = this.picturesEnd + this.pictureCycle;
+    } else {
+      this.picturesStart = 0;
+      this.picturesEnd = 4;
     }
+    this.getImagesAccordingIndex();
+  }
+
+  getImagesAccordingIndex(){
+    let tempArr = this.events.dir.large;
+    this.bigImagesArray = tempArr.slice(this.picturesStart, this.picturesEnd);
   }
 
   onShowBigImage(i){
@@ -61,7 +71,7 @@ export class EventComponent implements OnInit {
     let half = length / 2;
     let end = length - 4;
     if (end < half) {}
-    console.log(length);
+ //   console.log(length);
   }
 
 

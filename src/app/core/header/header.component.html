@@ -9,7 +9,6 @@
       <!-- END HOME -->
 
 
-
       <!-- PORTFOLIO -->
       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a [routerLink]="['/portfolio']">Portfolio</a>
@@ -17,13 +16,21 @@
       <!-- END PORTFOLIO -->
 
       <!-- EVENTS -->
-      <li routerLinkActive="active">
-        <a [routerLink]="['/events']">Events</a>
-        <ul>
+      <li routerLinkActive="active"
+          (mouseleave)="hidden = !hidden"
+          (mouseenter)="hidden = !hidden">
 
+        <a [routerLink]="['/events']"
 
+        >Events</a>
+        <span *ngIf="fetched">
+          <app-event-year-menu
+            [events]="menu.events"
+            [isHidden]="hidden"
+          >
+         </app-event-year-menu>
+        </span>
 
-        </ul>
       </li>
       <!-- END EVENTS -->
 
@@ -42,7 +49,7 @@
 
       <!-- ADMIN -->
       <app-multi-items-lvl-one
-        ng *ngIf="isAuth"
+        *ngIf="isAuth"
         [routerLinkFromHeader]="{link: '/admin', name: 'Admin'}"
         [itemsCollection]="admin">
       </app-multi-items-lvl-one>

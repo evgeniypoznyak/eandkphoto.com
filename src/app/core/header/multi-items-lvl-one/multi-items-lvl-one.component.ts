@@ -16,6 +16,9 @@ export class MultiItemsLvlOneComponent implements OnInit {
 
   ngOnInit() {
 
+   // console.log(this.routerLinkFromHeader);
+   // console.log(this.itemsCollection);
+
   }
 
 }

@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class EventYearMenuComponent implements OnInit {
   @Input() events: any;
   @Input() isHidden: any;
-  hidden: boolean = true;
+  hidden = true;
   constructor() { }
 
   ngOnInit() {

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   fetched: boolean = false;
   eventsSubscription: Subscription;
   subAuthSubscription: Subscription;
-  hidden = true;
+  hidden: boolean = true;
 
 
   constructor(private _options: OptionsService, private _loginService: LoginService, private _connect: ConnectService) { }

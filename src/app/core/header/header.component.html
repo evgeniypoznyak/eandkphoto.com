@@ -59,7 +59,29 @@
     </ul>
   </nav>
 
+
+
 </header>
 
+<div class="holder-menu">
+  <nav class="menu">
+    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+    <label class="menu-open-button" for="menu-open">
+      <span class="lines line-1"></span>
+      <span class="lines line-2"></span>
+      <span class="lines line-3"></span>
+    </label>
 
+    <a [routerLink]="['/']" class="menu-item blue"><i class="fa fa-home"></i> </a>
+    <a [routerLink]="['/portfolio']" class="menu-item green"><i class="fa fa-images"></i></a>
+    <a href="#" class="menu-item red" (click)="openModal('events')" ><i class="fa fa-history" ></i> </a>
+    <a href="#" class="menu-item purple"><i class="fa fa-user"></i> </a>
+    <a href="#" class="menu-item orange"><i class="fa fa-envelope"></i> </a>
+    <a href="#" class="menu-item lightblue" (click)="openModal('social')"><i class="fa fa-link" ></i></a>
+  </nav>
+
+</div>
+
+<app-modal
+></app-modal>
 

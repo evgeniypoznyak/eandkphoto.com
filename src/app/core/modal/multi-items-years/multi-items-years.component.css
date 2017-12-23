@@ -1,0 +1,50 @@
+.yearHeader {
+  background-color: #70CC72;
+  padding: 10px;
+  text-align: center;
+}
+
+.monthHeader {
+  padding: 10px;
+  text-align: center;
+}
+
+my-link {
+  margin-left: 30px;
+}
+
+.yearHeader > a {
+  float: right;
+  transition: all 0.7s;
+}
+
+.yearHeader > a:hover {
+  color: darkorange;
+}
+
+.monthHeader > a {
+  float: right;
+  transition: color 0.7s;
+}
+
+.monthHeader > a:hover {
+  color: darkorange;
+}
+
+.monthHeader {
+  background-color: #669AE1;
+  padding: 10px;
+}
+
+
+.wrapper {
+  transition: opacity 1.5s;
+}
+.hidden {
+  opacity: 0 !important;
+  height: 0px !important;
+  font-size: 0px;
+  width: 0px;
+  background-color: transparent;
+  transition: opacity 1.5s;
+}

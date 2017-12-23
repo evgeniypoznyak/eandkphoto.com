@@ -1,66 +1,58 @@
-@font-face {
-  font-family: GermaniaOne;
-  src: url(/assets/fonts/GermaniaOne-Regular.ttf);
+
+
+:host {
+  font-size: 30px;
+  display: block;
+  position: relative;
 }
 
 ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
+  padding: 10px;
+  position: absolute;
+  left: 76px;
+  top: calc(100% - 45px);
+  transition: all 1.2s;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.under {
+  z-index: 1;
+  padding: 0px;
+  margin: 0px;
+  justify-content: flex-start;
+  opacity: 1;
+  transition: all 1.5s;
 }
 
 li {
-  cursor: pointer;
-  /*display: block;*/
-  /*display: inline-block;*/
   padding: 10px;
   background-color: darkolivegreen;
-  transition: all 0.2s;
-  font-family: GermaniaOne, Helvetica, Arial, sans-serif;
 }
 
 li:hover {
   background-color: chocolate;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
-:host {
-  display: none;
-  font-size: 30px;
-  display: block;
-  background-color: firebrick;
-  position: relative;
+.hiddenMonth {
+  height: 0;
+  opacity: 0;
 }
 
 .active {
-  background-color: chocolate;
+  background-color: #008ad2;
+  /*border: 3px solid firebrick;*/
+  /*border-color: firebrick;*/
 }
 
-
+.active:hover {
+  background-color: #008ad2;
+  /*border: 3px solid firebrick;*/
+  /*border-color: firebrick;*/
+}
 
 .holder {
-  position: relative;
+  /*position: relative;*/
 }
 
-.under {
-  position: absolute;
-  z-index: 1;
-  top: 10px;
-  left: -10px;
-  padding: 0px;
-  margin: 0px;
-  justify-content: flex-start;
-  opacity: 1;
-  transition: all 0.5s;
-}
-
-.hidden {
-  display: none;
-  /* opacity: 0;*/
-}

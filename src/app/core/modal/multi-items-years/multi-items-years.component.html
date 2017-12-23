@@ -1,18 +1,42 @@
-<ul><a [routerLink]="['/events/', yearStr | lowercase ]">{{ yearStr }}</a>
-  <li *ngFor="let monthItem of yearArr | keys ">
+<ul>
+  <h3 class="yearHeader"
+      (click)="onYear()"
+  > {{ yearStr }} <i [ngClass]="{'fa-caret-left': hidden, 'fa-caret-down': !hidden }" class="fa "></i>
+    <a [routerLink]="['/events/', yearStr | lowercase ]"
+       class="menu-item orange"><i class="fa fa-external-link-alt"></i> </a>
+  </h3>
 
-    <a [routerLink]="[
+
+    <li class="wrapper" [ngClass]="{hidden: hidden}" *ngFor="let monthItem of yearArr | keys ">
+
+    <h4 class="monthHeader" [ngClass]="{hidden: hidden}"
+        (click)="onMonth(monthItem)"
+    >{{ monthItem | month }} <i
+      [ngClass]="{
+      'fa-caret-left': hiddenEvents != monthItem,
+      'fa-caret-down': hiddenEvents == monthItem
+      }" class="fa "></i>
+      <a [routerLink]="[
     '/events/',
     yearStr,
     monthItem | month | lowercase
-     ]">{{ monthItem | month }}</a>
+     ]"><i class="fa fa-external-link-alt"></i> </a>
+    </h4>
 
-    <app-multi-items-months
-      [monthStr]="monthItem"
-      [yearStr]="yearStr"
-      [monthArr]="yearArr[monthItem]"
-      [events]="events"
-    ></app-multi-items-months>
+      <div class="wrapper" [ngClass]="{hidden: hiddenEvents != monthItem}">
+            <app-multi-items-months
+              [monthStr]="monthItem"
+              [yearStr]="yearStr"
+              [monthArr]="yearArr[monthItem]"
+              [events]="events"
+            ></app-multi-items-months>
+      </div>
+
 
   </li>
+
+
+
+
+
 </ul>

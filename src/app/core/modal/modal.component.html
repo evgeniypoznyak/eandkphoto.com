@@ -1,4 +1,3 @@
-<!-- Trigger/Open The Modal -->
 <!-- The Modal -->
 <div id="myModal"
      class="hidden"
@@ -7,24 +6,55 @@
      (click)="openCloseModal()"
 >
   <!-- Modal content -->
-  <div class="modal-content" (click)="$event.stopPropagation()">
+  <div [ngClass]="{'modal-small': modalChoice == 'social'}"  class="modal-content" (click)="$event.stopPropagation()">
     <span class="close" (click)="openCloseModal()">&times;</span>
 
-    <a [routerLink]="[menu.home.path]">{{menu.home.name}}</a>
-    <br>
-    <a [routerLink]="[menu.contact.path]">{{menu.contact.name}}</a>
-    <ul>
-      <a [routerLink]="[menu.portfolio.path]">{{menu.portfolio.name}}</a>
+    <ul *ngIf="modalChoice == 'social'">
+      <h4 class="headerModal">Social Links</h4>
+      <div class="social-wrapper">
 
-      <li>
-        &nbsp;&nbsp;&nbsp; <a [routerLink]="[menu.portfolio.family.path]">{{menu.portfolio.family.name}}</a><br>
-      </li>
+        <div>
+          <a href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+
+        <div>
+          <a href="#">
+            <i class="fab fa-google-plus-square"></i>
+          </a>
+        </div>
+
+        <div>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+
+      </div>
+
 
     </ul>
 
+
+    <!--<a [routerLink]="[menu.home.path]">{{menu.home.name}}</a> -->
+
+    <!--<br>-->
+    <!--<a [routerLink]="[menu.contact.path]">{{menu.contact.name}}</a>-->
+    <!--<ul>-->
+      <!--<a [routerLink]="[menu.portfolio.path]">{{menu.portfolio.name}}</a>-->
+
+      <!--<li>-->
+        <!--&nbsp;&nbsp;&nbsp; <a [routerLink]="[menu.portfolio.family.path]">{{menu.portfolio.family.name}}</a><br>-->
+      <!--</li>-->
+
+    <!--</ul>-->
+
     <!--  EVENTS START  -->
-    <ul *ngIf="modalOpen">
-      <a [routerLink]="'/events'">Events</a>
+    <ul *ngIf="modalChoice == 'events'">
+      <h3 class="headerModal">
+        <a [routerLink]="'/events'">Events</a>
+      </h3>
       <li *ngFor="let yearItem of menu.events | keys ">
         <app-multi-items-years
         [yearStr]="yearItem"
@@ -37,6 +67,6 @@
 
   </div>
 </div>
-<div class="menu" (click)="openCloseModal()"></div>
+<!--<div class="menu" (click)="openCloseModal()"></div>-->
 
 

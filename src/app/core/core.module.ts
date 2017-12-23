@@ -35,6 +35,7 @@ import { LoginComponent } from './login/login.component';
 import { EventYearMenuComponent } from './header/event-year-menu/event-year-menu.component';
 import { EventMonthMenuComponent } from './header/event-month-menu/event-month-menu.component';
 import { EventMenuComponent } from './header/event-menu/event-menu.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { EventMenuComponent } from './header/event-menu/event-menu.component';
 
   imports: [
     CommonModule,
+    SharedModule,
     CoreRoutingModule,
     ReactiveFormsModule,
   ],
@@ -72,6 +74,7 @@ import { EventMenuComponent } from './header/event-menu/event-menu.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    //SharedModule,
   ],
   providers: [
     EventsService,

@@ -4,14 +4,16 @@ import { CommonModule } from '@angular/common';
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
 import { EventComponent } from './event/event.component';
-import { CoreModule } from '../core/core.module';
+//import { CoreModule } from '../core/core.module';
 import { YearComponent } from './year/year.component';
 import { MonthComponent } from './month/month.component';
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     EventsRoutingModule,
+    SharedModule,
   ],
   declarations: [EventsComponent, EventComponent, YearComponent, MonthComponent]
 })

@@ -1,16 +1,22 @@
 <ul
+
   class="under"
   [ngClass]="{'hidden': isHidden}">
 
-  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-      *ngFor="let yearString of events | keys">
+  <li
+      *ngFor="let yearString of events | keys"
+      (mouseenter)="getEventStart(yearString)"
+      (mouseleave)="getEventEnd(yearString)"
+  >
     <a
+      routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
       class="items" [routerLink]="'/events/' + yearString"> {{ yearString }} </a>
 
     <app-event-month-menu
       [yearStr]="yearString"
       [events]="events"
       [yearArr]="events[yearString]"
+      [isHoverOverYear]="hoverOver"
     >
     </app-event-month-menu>
 

@@ -10,12 +10,14 @@ export class EventMonthMenuComponent implements OnInit {
   @Input() yearStr: any;
   @Input() events: any;
   @Input() yearArr: any;
+  @Input() isHoverOverYear: string;
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.events);
-    console.log(this.yearStr);
-    console.log(this.yearArr);
+    // console.log(this.events);
+    // console.log(this.yearStr);
+    // console.log(this.yearArr);
   }
 
 }

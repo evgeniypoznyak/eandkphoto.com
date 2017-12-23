@@ -9,11 +9,23 @@ export class EventYearMenuComponent implements OnInit {
   @Input() events: any;
   @Input() isHidden: any;
   hidden = true;
+  hiddenMonth: boolean = false;
+  hoverOver: any;
+  mouseLeave: any;
   constructor() { }
+
+  getEventStart(year){
+    this.hoverOver = year;
+  }
+  getEventEnd(year){
+    this.hoverOver = ''
+  }
 
   ngOnInit() {
 
-    console.log(this.events);
+
+
+   // console.log(this.events);
   }
 
 }

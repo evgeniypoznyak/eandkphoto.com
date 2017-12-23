@@ -11,9 +11,27 @@ export class MultiItemsYearsComponent implements OnInit {
   @Input() yearArr: any;
   @Input() events: any;
 
+  hidden: boolean = true;
+  hiddenEvents: string = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+
+
+  onYear(){
+    this.hidden = !this.hidden;
+  }
+
+  onMonth(str: string){
+    if (this.hiddenEvents == str) {
+      this.hiddenEvents = '';
+    } else {
+      this.hiddenEvents = str;
+    }
+
   }
 
 }

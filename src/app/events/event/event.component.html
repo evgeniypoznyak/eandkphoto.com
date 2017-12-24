@@ -34,11 +34,11 @@
 
 
   <div id="gallery">
-    <div class="photos">
+    <div class="photos"  *ngFor="let small of events.dir.small; let i = index">
 
       <img
         [ngClass]="{ visible : (i >= picturesStart ) && ( i <= picturesEnd) }"
-        *ngFor="let small of events.dir.small; let i = index"
+
         src="{{ small }}" alt=""
         (click)="onShowBigImage(i)"
       >

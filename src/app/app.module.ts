@@ -11,7 +11,7 @@ import {LoginService} from "./core/services/login.service";
 import {EventResolverService} from "./events/event-resolver.service";
 import {SliderService} from "./core/slider/slider.service";
 import {PortfolioService} from "./core/services/portfolio.service";
-import {ModalService} from "./core/modal/modal.service";
+import {ModalService} from "./shared/modal/modal.service";
 import {OptionsService} from "./core/services/options.service";
 import {UploadService} from "./core/services/upload.service";
 import {ConnectService} from "./core/services/http/connect.service";

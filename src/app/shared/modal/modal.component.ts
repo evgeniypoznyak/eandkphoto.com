@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ConnectService } from '../services/http/connect.service';
-import { OptionsService } from '../services/options.service';
+import { ConnectService } from '../../core/services/http/connect.service';
+import { OptionsService } from '../../core/services/options.service';
 import { Subscription } from 'rxjs/Subscription';
 import {ModalService} from "./modal.service";
 

@@ -14,7 +14,7 @@ import {CoreModule} from "../core/core.module";
   imports: [
     CommonModule,
     EventsRoutingModule,
-    //SharedModule,
+    SharedModule,
    // CoreModule
   ],
   declarations: [EventsComponent, EventComponent, YearComponent, MonthComponent]

@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {OptionsService} from '../services/options.service';
-import {LoginService} from '../services/login.service';
-import {ConnectService} from '../services/http/connect.service';
 import {Subscription} from 'rxjs/Subscription';
+import {OptionsService} from "../../core/services/options.service";
+import {LoginService} from "../../core/services/login.service";
+import {ConnectService} from "../../core/services/http/connect.service";
 import {ModalService} from "../modal/modal.service";
 
 @Component({

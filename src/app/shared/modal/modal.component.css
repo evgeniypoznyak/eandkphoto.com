@@ -49,9 +49,8 @@
 
 
 .modal-small {
-  height: 30%;
-
-  width: 30%;
+  height: 35%;
+  width: 48%;
 }
 
   /*  SCROLLBAR  */
@@ -79,8 +78,8 @@
 /* The Close Button */
 .close {
   position: fixed;
-  top: calc(13%);
-  right: calc(22%);
+  top: calc(11%);
+  right: calc(26%);
   color: #aaaaaa;
   float: right;
   font-size: 28px;

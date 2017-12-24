@@ -67,7 +67,7 @@ header > nav{
 
 @media screen and (max-width:1300px) {
   .holder-menu {
-    bottom: 2vh;
+    bottom: 0vh;
   }
 }
 @media screen and (max-width: 780px) {
@@ -80,7 +80,7 @@ header > nav{
   .holder-menu {
     display: block;
     position: relative;
-    /*bottom: -26vh;*/
+    bottom: 0vh;
   }
 }
 

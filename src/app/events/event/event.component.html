@@ -1,28 +1,28 @@
 <div *ngIf="check">
 
-  <div class="bigImageWrap">
+  <div class="holderB">
+    <div class="bigImageWrap">
 
-    <div style="display: none">
-      <img
-        *ngFor="let large of bigImagesArray"
-        src="{{ large }}" alt=""
+      <!--FOR PRELOADING -->
+      <img style="display: none"
+           *ngFor="let large of bigImagesArray"
+           src="{{ large }}" alt=""
       >
+
+      <img
+        *ngIf="bigImage; else description_content"
+        class="bigImage" src="{{ bigImage }}" alt="">
+
+      <ng-template #description_content>
+        <div style="text-align: center">
+          {{ events.event[0].description }}
+        </div>
+      </ng-template>
+
     </div>
-
-    <div *ngIf="bigImage; else description_content">
-
-      <img class="bigImage" src="{{ bigImage }}" alt="">
-
-    </div>
-
-    <ng-template #description_content>
-      <div style="text-align: center">
-        {{ events.event[0].description }}
-      </div>
-    </ng-template>
-
-
   </div>
+
+
 
   <div class="buttons">
     <input id="back" type="button" (click)="onBack()" value="<">
@@ -31,6 +31,7 @@
   </div>
 
   <app-header></app-header>
+
 
   <div id="gallery">
     <div class="photos">
@@ -41,7 +42,6 @@
         src="{{ small }}" alt=""
         (click)="onShowBigImage(i)"
       >
-
     </div>
 
   </div>

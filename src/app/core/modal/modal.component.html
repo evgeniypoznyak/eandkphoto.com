@@ -53,7 +53,7 @@
     <!--  EVENTS START  -->
     <ul *ngIf="modalChoice == 'events'">
       <h3 class="headerModal">
-        <a [routerLink]="'/events'">Events</a>
+        <a [routerLink]="'/events'" (click)="openCloseModal()">Events</a>
       </h3>
       <li *ngFor="let yearItem of menu.events | keys ">
         <app-multi-items-years

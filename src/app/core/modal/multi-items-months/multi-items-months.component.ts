@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {ModalService} from "../modal.service";
 
 @Component({
   selector: 'app-multi-items-months',
@@ -12,9 +13,13 @@ export class MultiItemsMonthsComponent implements OnInit {
   @Input() monthArr: any;
   @Input() events: any;
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit() {
+  }
+
+  openCloseModal(){
+    this.modalService.open.next({choice: '', isOpen: false})
   }
 
 }

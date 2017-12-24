@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {ModalService} from "../modal.service";
 
 @Component({
   selector: 'app-multi-items-years',
@@ -14,7 +15,7 @@ export class MultiItemsYearsComponent implements OnInit {
   hidden: boolean = true;
   hiddenEvents: string = '';
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,10 @@ export class MultiItemsYearsComponent implements OnInit {
       this.hiddenEvents = str;
     }
 
+  }
+
+  openCloseModal(){
+    this.modalService.open.next({choice: '', isOpen: false})
   }
 
 }

@@ -1,87 +1,92 @@
-<header>
-  <nav>
-    <ul>
+<!--<header>-->
+  <!--<nav>-->
+    <!--<ul>-->
 
-      <!-- HOME -->
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a [routerLink]="['/']">Home</a>
-      </li>
-      <!-- END HOME -->
-
-
-      <!-- PORTFOLIO -->
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a [routerLink]="['/portfolio']">Portfolio</a>
-      </li>
-      <!-- END PORTFOLIO -->
-
-      <!-- EVENTS -->
-      <li routerLinkActive="active"
-          (mouseleave)="hidden = !hidden"
-          (mouseenter)="hidden = !hidden">
-
-        <a [routerLink]="['/events']"
-
-        >Events</a>
-        <span *ngIf="fetched">
-          <app-event-year-menu
-            [events]="menu.events"
-            [isHidden]="hidden"
-          >
-         </app-event-year-menu>
-        </span>
-
-      </li>
-      <!-- END EVENTS -->
-
-      <!-- LOGIN -->
-      <li
-        *ngIf="!isAuth"
-        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a [routerLink]="['/evgeniy']">Login</a>
-      </li>
-      <li
-        *ngIf="isAuth">
-        <a (click)="onLogOut()">LogOut</a>
-      </li>
-      <!-- END LOGIN -->
+      <!--&lt;!&ndash; HOME &ndash;&gt;-->
+      <!--<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+        <!--<a [routerLink]="['/']">Home</a>-->
+      <!--</li>-->
+      <!--&lt;!&ndash; END HOME &ndash;&gt;-->
 
 
-      <!-- ADMIN -->
-      <app-multi-items-lvl-one
-        *ngIf="isAuth"
-        [routerLinkFromHeader]="{link: '/admin', name: 'Admin'}"
-        [itemsCollection]="admin">
-      </app-multi-items-lvl-one>
-      <!-- END ADMIN -->
+      <!--&lt;!&ndash; PORTFOLIO &ndash;&gt;-->
+      <!--<li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+        <!--<a [routerLink]="['/portfolio']">Portfolio</a>-->
+      <!--</li>-->
+      <!--&lt;!&ndash; END PORTFOLIO &ndash;&gt;-->
+
+      <!--&lt;!&ndash; EVENTS &ndash;&gt;-->
+      <!--<li routerLinkActive="active"-->
+          <!--(mouseleave)="hidden = !hidden"-->
+          <!--(mouseenter)="hidden = !hidden">-->
+
+        <!--<a [routerLink]="['/events']"-->
+
+        <!--&gt;Events</a>-->
+        <!--<span *ngIf="fetched">-->
+          <!--<app-event-year-menu-->
+            <!--[events]="menu.events"-->
+            <!--[isHidden]="hidden"-->
+          <!--&gt;-->
+         <!--</app-event-year-menu>-->
+        <!--</span>-->
+
+      <!--</li>-->
+      <!--&lt;!&ndash; END EVENTS &ndash;&gt;-->
+
+      <!--&lt;!&ndash; LOGIN &ndash;&gt;-->
+      <!--<li-->
+        <!--*ngIf="!isAuth"-->
+        <!--routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">-->
+        <!--<a [routerLink]="['/evgeniy']">Login</a>-->
+      <!--</li>-->
+      <!--<li-->
+        <!--*ngIf="isAuth">-->
+        <!--<a (click)="onLogOut()">LogOut</a>-->
+      <!--</li>-->
+      <!--&lt;!&ndash; END LOGIN &ndash;&gt;-->
 
 
-    </ul>
-  </nav>
+      <!--&lt;!&ndash; ADMIN &ndash;&gt;-->
+      <!--<app-multi-items-lvl-one-->
+        <!--*ngIf="isAuth"-->
+        <!--[routerLinkFromHeader]="{link: '/admin', name: 'Admin'}"-->
+        <!--[itemsCollection]="admin">-->
+      <!--</app-multi-items-lvl-one>-->
+      <!--&lt;!&ndash; END ADMIN &ndash;&gt;-->
+
+
+    <!--</ul>-->
+  <!--</nav>-->
 
 
 
-</header>
+<!--</header>-->
 
 <div class="holder-menu">
   <nav class="menu">
-    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
-    <label class="menu-open-button" for="menu-open">
+    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" [checked]="removeCheck"/>
+    <label class="menu-open-button" (click)="unCheck()">
       <span class="lines line-1"></span>
       <span class="lines line-2"></span>
       <span class="lines line-3"></span>
     </label>
 
-    <a [routerLink]="['/']" class="menu-item blue"><i class="fa fa-home"></i> </a>
-    <a [routerLink]="['/portfolio']" class="menu-item green"><i class="fa fa-images"></i></a>
-    <a href="#" class="menu-item red" (click)="openModal('events')" ><i class="fa fa-history" ></i> </a>
-    <a href="#" class="menu-item purple"><i class="fa fa-user"></i> </a>
-    <a href="#" class="menu-item orange"><i class="fa fa-envelope"></i> </a>
-    <a href="#" class="menu-item lightblue" (click)="openModal('social')"><i class="fa fa-link" ></i></a>
+    <a [routerLink]="['/']" class="menu-item blue"
+       (click)="unCheck()"><i class="fa fa-home"></i> </a>
+    <a [routerLink]="['/portfolio']" class="menu-item green"
+       (click)="unCheck()"><i class="fa fa-images"></i></a>
+    <a class="menu-item red"
+       (click)="openModal('events')" (click)="unCheck()" ><i class="fa fa-history" ></i> </a>
+    <a class="menu-item purple"
+       (click)="unCheck()"><i class="fa fa-user"></i> </a>
+    <a  class="menu-item orange"
+       (click)="unCheck()"><i class="fa fa-envelope"></i> </a>
+    <a  class="menu-item lightblue"
+       (click)="openModal('social')"
+       (click)="unCheck()"><i class="fa fa-link" ></i></a>
   </nav>
 
 </div>
-
-<app-modal
-></app-modal>
+<app-modal></app-modal>
 

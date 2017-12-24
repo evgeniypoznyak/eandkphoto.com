@@ -2,7 +2,7 @@
   <h3 class="yearHeader"
       (click)="onYear()"
   > {{ yearStr }} <i [ngClass]="{'fa-caret-left': hidden, 'fa-caret-down': !hidden }" class="fa "></i>
-    <a [routerLink]="['/events/', yearStr | lowercase ]"
+    <a [routerLink]="['/events/', yearStr | lowercase ]" (click)="openCloseModal()"
        class="menu-item orange"><i class="fa fa-external-link-alt"></i> </a>
   </h3>
 
@@ -20,7 +20,7 @@
     '/events/',
     yearStr,
     monthItem | month | lowercase
-     ]"><i class="fa fa-external-link-alt"></i> </a>
+     ]" (click)="openCloseModal()"><i class="fa fa-external-link-alt"></i> </a>
     </h4>
 
       <div class="wrapper" [ngClass]="{hidden: hiddenEvents != monthItem}">

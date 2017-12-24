@@ -77,18 +77,7 @@ import {SharedModule} from "../shared/shared.module";
     //SharedModule,
   ],
   providers: [
-    EventsService,
-    PortfolioService,
-    SliderService,
-    ModalService,
-    OptionsService,
-    ConnectService,
-    FirebaseService,
-    LaravelService,
-    UploadService,
-    LoginService,
-    EventResolverService,
-    AuthGuardService,
+
   ],
 
 })

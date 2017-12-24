@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   eventsSubscription: Subscription;
   subAuthSubscription: Subscription;
   hidden: boolean = true;
+  removeCheck = false;
 
 
   constructor(private _options: OptionsService,
@@ -70,6 +71,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   openModal(choice) {
     const res = { choice: choice, isOpen: true }
     this.modalService.open.next(res);
+  }
+
+  unCheck(){
+    this.removeCheck = !this.removeCheck;
   }
 
 }

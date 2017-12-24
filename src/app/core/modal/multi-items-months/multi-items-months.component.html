@@ -6,6 +6,6 @@
     yearStr,
     monthStr| month | lowercase,
     item.name | lowercase
-    ]">{{ item.name | makePretty }}</a>
+    ]" (click)="openCloseModal()">{{ item.name | makePretty }}</a>
   </li>
 </ul>

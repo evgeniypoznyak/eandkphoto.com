@@ -2,11 +2,13 @@
   background-color: #70CC72;
   padding: 10px;
   text-align: center;
+  margin: 10px;
 }
 
 .monthHeader {
   padding: 10px;
   text-align: center;
+  margin: 4px;
 }
 
 my-link {

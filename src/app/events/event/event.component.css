@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center !important;
-  height: 320px;
+  justify-content: center;
+  align-items: baseline;
+  height: 460px;
   overflow-y: auto;
 }
 
@@ -14,38 +15,43 @@
   width: 10px;
   height: 10px;
 }
+
 #gallery::-webkit-scrollbar-button {
   width: 20px;
   height: 20px;
 }
+
 #gallery::-webkit-scrollbar-thumb {
   background: rgba(0, 128, 0, 0.72);
   border: 9px none #ffffff;
   border-radius: 37px;
 }
+
 #gallery::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 128, 0, 0.72);
 }
+
 #gallery::-webkit-scrollbar-thumb:active {
   background: rgba(255, 128, 0, 0.81);
 }
+
 #gallery::-webkit-scrollbar-track {
   background: #808080;
   border: 66px none #ffffff;
   border-radius: 95px;
 }
+
 #gallery::-webkit-scrollbar-track:hover {
   background: #808080;
 }
+
 #gallery::-webkit-scrollbar-track:active {
   background: #808080;
 }
+
 #gallery::-webkit-scrollbar-corner {
   background: transparent;
 }
-
-
-
 
 .photos {
   /*margin-left: 100px;*/
@@ -64,7 +70,6 @@
   height: 0px;
   width: 0px;
 
-
   background-color: #aaaaaa;
   cursor: pointer;
   -webkit-box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
@@ -77,7 +82,6 @@
   transform: scale(1.1);
 }
 
-
 .visible {
   height: auto !important;
   width: 150px !important;
@@ -87,7 +91,6 @@
   margin: 5px !important;
 }
 
-
 .buttons {
   position: relative;
   height: 100px;
@@ -95,7 +98,6 @@
   flex-direction: row;
   justify-content: center;
 }
-
 
 /* BUTTONS */
 #back, #forv {
@@ -117,19 +119,18 @@
   color: black;
 }
 
-
-
 /* BIGIMAGE */
 .holderB {
+  padding: .5vw;
+  font-size: 0;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap;
-  height: 500px;
+  height: 53vh;
 }
 
 .bigImageWrap {
-  min-width: 0;
-  margin: 5px;
+  margin: .5vw;
 }
 
 .bigImage {
@@ -140,30 +141,17 @@
   box-shadow: 9px 10px 18px -7px rgba(0, 0, 0, 0.75);
 }
 
-
-
-@media screen and (max-width:1300px) {
-  .holderB {
-    height: 400px;
-  }
-  .bigImageWrap {
-    height: 400px;
-  }
+@media screen and (max-width: 1300px) {
 }
+
 @media screen and (max-width: 780px) {
-  .holderB {
-    height: 300px;
-  }
-  .bigImageWrap {
-    height: 300px;
-  }
 }
 
 @media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 300px) {
   .holderB {
-    height: 200px;
-  }
-  .bigImageWrap {
-    height: 200px;
+  height: 44vh;
   }
 }

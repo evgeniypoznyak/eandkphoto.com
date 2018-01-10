@@ -12,16 +12,27 @@
     <a [routerLink]="['/portfolio']" class="menu-item green"
        (click)="unCheck()"><i class="fa fa-images"></i></a>
     <a class="menu-item red"
-       (click)="openModal('events')" (click)="unCheck()" ><i class="fa fa-history" ></i> </a>
+       (click)="openModal('events')" (click)="unCheck()"><i class="fa fa-history"></i> </a>
     <a class="menu-item purple"
        (click)="unCheck()"><i class="fa fa-user"></i> </a>
-    <a  class="menu-item orange"
-       (click)="unCheck()"><i class="fa fa-envelope"></i> </a>
-    <a  class="menu-item lightblue"
+    <a class="menu-item orange"
+       (click)="unCheck()" [routerLink]="['/contact']"><i class="fa fa-envelope"></i> </a>
+    <a class="menu-item lightblue"
        (click)="openModal('social')"
-       (click)="unCheck()"><i class="fa fa-link" ></i></a>
+       (click)="unCheck()"><i class="fa fa-link"></i></a>
   </nav>
 
 </div>
+<div *ngIf="isAuth">
+  <div class="adminWrap">
+
+    <a class="adminLink" *ngFor="let admin of adminMenu" [routerLink]="admin.path">{{admin.name}}</a>
+    <a class="adminLink" (click)="onLogOut()">LogOut</a>
+
+  </div>
+
+</div>
+
+
 <app-modal></app-modal>
 

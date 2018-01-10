@@ -14,8 +14,8 @@ import {ModalService} from "../modal/modal.service";
 export class HeaderComponent implements OnInit, OnDestroy {
 
   menu = this._options.menu;
-  admin = this._options.menu.admin;
-  isAuth = false;
+  adminMenu = this._options.menu.admin;
+  isAuth = this._loginService.staticLogin;
   fetched: boolean = false;
   eventsSubscription: Subscription;
   subAuthSubscription: Subscription;
@@ -31,22 +31,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    // отдельным потоком, потому что идет авторизация токена
-    setTimeout(() => {
-      this._connect.isAuth().subscribe((res) => {
-        if (res.token.length > 10) {
-          this.isAuth = true;
-        } else {
-          this.isAuth = false;
-        }
-      }, (err) => {
-        console.log(err);
-      });
-    }, 2000);
 
-    this._connect.subAuth().subscribe((bol) => {
-      this.isAuth = bol;
-    });
+
+    // console.log(this._loginService.staticLogin);
+    // this._loginService.isAuth.subscribe((data) => {
+    //   console.log(data);
+    // })
+
+    // отдельным потоком, потому что идет авторизация токена
+    // setTimeout(() => {
+    //   this.subAuthSubscription = this._connect.isAuth().subscribe((res) => {
+    //     if (res.token.length > 10) {
+    //       this.isAuth = true;
+    //     } else {
+    //       this.isAuth = false;
+    //     }
+    //   }, (err) => {
+    //     console.log(err);
+    //   });
+    // }, 2000);
+    //
+    // this._connect.subAuth().subscribe((bol) => {
+    //   this.isAuth = bol;
+    // });
 
 
     // То что я загружаю через фолдер
@@ -60,6 +67,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.eventsSubscription.unsubscribe();
+   // this.subAuthSubscription.unsubscribe();
   }
 
   onLogOut() {

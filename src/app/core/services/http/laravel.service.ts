@@ -25,6 +25,11 @@ export class LaravelService {
     return this._http.get<any[]>(this.api.eventsApi, this.getHeaders)
   }
 
+  onSendContact(body) {
+    return this._http.post<any>(this.api.contactApi, body, this.postHeaders)
+  }
+
+
   getOneEvent(data) {
     let dynamicUrl = data.year + '/' + data.month + '/' + data.event;
     return this._http.get<any[]>(this.api.eventsApi + dynamicUrl, this.getHeaders)
@@ -57,6 +62,35 @@ export class LaravelService {
       })
     }
 
+  }
+
+
+  addPortfolio(body){
+    let reader = new FileReader();
+    let formData: FormData = new FormData();
+    reader.readAsDataURL(body.file);
+    let con = this._http;
+    let api = this.api;
+
+    reader.onload = function () {
+      body.file = reader.result;
+      const token = localStorage.getItem('token');
+      formData.append('token', token);
+      formData.append('portfolio', body.portfolio);
+      formData.append('binary', body.file);
+      con.post<any[]>(api.portfolioApi, formData).subscribe((data) => {
+        console.log(data);
+      })
+    }
+  }
+
+  // getOnePortfolio(portfolio: string) {
+  //   return this._http.get<any[]>(this.api.sliderApi + portfolio, this.getHeaders)
+  // }
+
+
+  getAllPortfolios(){
+    return this._http.get<any[]>(this.api.portfolioApi, this.getHeaders)
   }
 
   onCreateUser(username: string, email: string, password: string) {

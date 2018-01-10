@@ -1,0 +1,20 @@
+<br>
+<hr>
+<div class="wrapper">
+  <form id="portfolioForm" [formGroup]="portfolioForm" (ngSubmit)="onSubmit()">
+    Folder name in the zip file: <br> <input
+    formControlName="portfolio"
+    type="text" id="portfolio">
+    <br><br>
+    Zip:<br> <input
+    formControlName="zip"
+    (change)="detectFiles($event)"
+    type="file" id="zip">
+    <br><br>
+    Submit <input
+    [disabled]="!selectedFiles"
+    type="submit"
+  >
+  </form>
+</div>
+

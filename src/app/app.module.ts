@@ -10,13 +10,14 @@ import {LaravelService} from "./core/services/http/laravel.service";
 import {LoginService} from "./core/services/login.service";
 import {EventResolverService} from "./events/event-resolver.service";
 import {SliderService} from "./core/slider/slider.service";
-import {PortfolioService} from "./core/services/portfolio.service";
 import {ModalService} from "./shared/modal/modal.service";
 import {OptionsService} from "./core/services/options.service";
 import {UploadService} from "./core/services/upload.service";
 import {ConnectService} from "./core/services/http/connect.service";
 import {EventsService} from "./core/services/events.service";
 import {FirebaseService} from "./core/services/http/firebase.service";
+import {PortfolioResolverService} from "./portfolio/portfolio-resolver.service";
+import {PortfolioService} from "./portfolio/portfolio.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,6 @@ import {FirebaseService} from "./core/services/http/firebase.service";
   ],
   providers: [
     EventsService,
-    PortfolioService,
     SliderService,
     ModalService,
     OptionsService,
@@ -41,6 +41,8 @@ import {FirebaseService} from "./core/services/http/firebase.service";
     LoginService,
     EventResolverService,
     AuthGuardService,
+    PortfolioResolverService,
+    PortfolioService,
   ],
   bootstrap: [AppComponent]
 })

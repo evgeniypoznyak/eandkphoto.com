@@ -1,3 +1,64 @@
-<p>
-  contact works!
-</p>
+<div class="formWrap">
+  <form id="contactForm"
+        *ngIf="formStatus === 'ready'"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+  >
+    <h3 class="formHeader">Contact Us</h3>
+
+    <label for="name">Name</label><br>
+    <input
+      formControlName="name"
+      type="text" id="name">
+    <br>
+    <label for="email">Email</label><br>
+    <input
+      formControlName="email"
+      type="email" id="email">
+    <br>
+    <label for="message">Message</label><br>
+    <textarea
+      formControlName="message"
+      name="message"
+      id="message"
+      cols="30"
+      rows="10"></textarea>
+    <br>
+    <label for="date">Approximately Event's Date</label><br>
+    <input
+      formControlName="date"
+      type="date" id="date">
+    <br>
+    <label for="location">Location</label><br>
+    <input
+      formControlName="location"
+      type="text" id="location">
+    <br>
+    <br>
+    <input
+      id="formButton"
+      type="submit"
+      value="Send Message"
+      [disabled]="!contactForm.valid">
+  </form>
+
+
+  <div *ngIf="formStatus === 'sending'" class="loaderWrap">
+    <img
+      class="emailLoader"
+      src="/assets/loaders/email.gif" alt="">
+  </div>
+
+  <div *ngIf="formStatus === 'sent'" class="statusWrap">
+    <div class="thank-you">Thank you</div>
+  </div>
+
+  <div *ngIf="formStatus === 'error'" class="statusWrap">
+    <h3>Error</h3>
+  </div>
+
+
+</div>
+
+
+<app-header></app-header>

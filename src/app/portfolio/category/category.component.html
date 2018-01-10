@@ -1,3 +1,31 @@
-<p>
-  portfolio-item works!
-</p>
+<div *ngIf="portfolio; else description_content">
+
+  <div class="holderB">
+    <div class="bigImageWrap">
+
+      <!--FOR PRELOADING -->
+      <!--<img style="display: none"-->
+      <!--*ngFor="let large of bigImagesArray"-->
+      <!--src="{{ large }}" alt="" >-->
+      <div *ngFor="let picture of portfolio[category].large; let i = index">
+        <img
+          [ngClass]="{active : active == i}"
+          class="img" [src]="picture" alt="">
+      </div>
+
+    </div>
+  </div>
+  <div class="buttons">
+    <input id="back" type="button" (click)="onPrev()" value="<">
+
+    <input id="forv" type="button" (click)="onNext()" value=">">
+  </div>
+
+</div>
+
+
+<ng-template #description_content>
+  <h1>LOADING...</h1>
+</ng-template>
+<app-header></app-header>
+

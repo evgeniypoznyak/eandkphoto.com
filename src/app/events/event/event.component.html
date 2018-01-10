@@ -1,8 +1,8 @@
 <div *ngIf="check">
 
-  <div class="holderB">
-    <div class="bigImageWrap">
 
+  <div class="holderB" [ngStyle]="{height:  !bigImage ? '0px' : ''}">
+    <div class="bigImageWrap" >
       <!--FOR PRELOADING -->
       <img style="display: none"
            *ngFor="let large of bigImagesArray"
@@ -10,19 +10,15 @@
       >
 
       <img
-        *ngIf="bigImage; else description_content"
+        *ngIf="bigImage"
         class="bigImage" src="{{ bigImage }}" alt="">
-
-      <ng-template #description_content>
-        <div style="text-align: center">
-          {{ events.event[0].description }}
-        </div>
-      </ng-template>
 
     </div>
   </div>
 
-
+  <h1 *ngIf="!bigImage" style="text-align: center">
+    {{ events.event[0].description }}
+  </h1>
 
   <div class="buttons">
     <input id="back" type="button" (click)="onBack()" value="<">

@@ -23,9 +23,9 @@ li:hover {
 
 
 :host {
-  font-size: 30px;
-  display: block;
-  background-color: firebrick;
+  /*font-size: 30px;*/
+  /*display: block;*/
+  /*background-color: firebrick;*/
 }
 
 .active {
@@ -52,6 +52,23 @@ li:hover {
 
 .hidden {
   opacity: 0;
+}
+
+.adminWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.adminLink {
+  cursor: pointer;
+  background-color: #029000;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 25px;
+  position: relative;
+  top: 20px;
 }
 
 
@@ -206,41 +223,49 @@ a {
 }
 
 .menu-item:nth-child(3) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-item:nth-child(4) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-item:nth-child(5) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-item:nth-child(6) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-item:nth-child(7) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-item:nth-child(8) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-item:nth-child(9) {
+  opacity: 0;
   -webkit-transition-duration: 180ms;
   transition-duration: 180ms;
 }
 
 .menu-open-button {
+  opacity: 0.5;
   z-index: 2;
   -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -253,11 +278,13 @@ a {
 }
 
 .menu-open-button:hover {
+  opacity: 1;
   -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
   transform: scale(1.2, 1.2) translate3d(0, 0, 0);
 }
 
 .menu-open:checked + .menu-open-button {
+  opacity: 1;
   -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
   -webkit-transition-duration: 200ms;
@@ -267,11 +294,13 @@ a {
 }
 
 .menu-open:checked ~ .menu-item {
+  opacity: 1;
   -webkit-transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
   transition-timing-function: cubic-bezier(0.935, 0, 0.34, 1.33);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(3) {
+  opacity: 1;
   transition-duration: 180ms;
   -webkit-transition-duration: 180ms;
   -webkit-transform: translate3d(0.08361px, -104.99997px, 0);
@@ -279,6 +308,7 @@ a {
 }
 
 .menu-open:checked ~ .menu-item:nth-child(4) {
+  opacity: 1;
   transition-duration: 280ms;
   -webkit-transition-duration: 280ms;
   -webkit-transform: translate3d(90.9466px, -52.47586px, 0);
@@ -286,6 +316,7 @@ a {
 }
 
 .menu-open:checked ~ .menu-item:nth-child(5) {
+  opacity: 1;
   transition-duration: 380ms;
   -webkit-transition-duration: 380ms;
   -webkit-transform: translate3d(90.9466px, 52.47586px, 0);
@@ -293,6 +324,7 @@ a {
 }
 
 .menu-open:checked ~ .menu-item:nth-child(6) {
+  opacity: 1;
   transition-duration: 480ms;
   -webkit-transition-duration: 480ms;
   -webkit-transform: translate3d(0.08361px, 104.99997px, 0);
@@ -300,6 +332,7 @@ a {
 }
 
 .menu-open:checked ~ .menu-item:nth-child(7) {
+  opacity: 1;
   transition-duration: 580ms;
   -webkit-transition-duration: 580ms;
   -webkit-transform: translate3d(-90.86291px, 52.62064px, 0);
@@ -308,6 +341,7 @@ a {
 
 
 .menu-open:checked ~ .menu-item:nth-child(8) {
+  opacity: 1;
   transition-duration: 680ms;
   -webkit-transition-duration: 680ms;
   -webkit-transform: translate3d(-91.03006px, -52.33095px, 0);
@@ -315,6 +349,7 @@ a {
 }
 
 .menu-open:checked ~ .menu-item:nth-child(9) {
+  opacity: 1;
   transition-duration: 780ms;
   -webkit-transition-duration: 780ms;
   -webkit-transform: translate3d(-0.25084px, -104.9997px, 0);

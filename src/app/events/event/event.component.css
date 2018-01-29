@@ -8,7 +8,9 @@
     /*align-items: baseline;*/
   /*height: 460px;*/
   overflow-y: auto;
+  /*overflow: hidden;*/
   height: 260px;
+  padding: 10px;
 }
 
 /*  SCROLLBAR  */
@@ -90,32 +92,25 @@
   border-radius: 10px;
 }
 
+/*!*Buttons *!*/
 .buttons {
   position: relative;
   height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+
 }
 
-/* BUTTONS */
 #back, #forv {
-  cursor: pointer;
-  height: 80%;
-  background-color: #0000009e;
-  color: #ffffff;
-  transition: all 0.5s;
-  z-index: 1;
-  border-style: none;
-  width: 150px;
-  font-size: 25px;
-  margin: 20px 50px;
-  border-radius: 5px;
+  flex-basis: 300px;
 }
 
-#back:hover, #forv:hover {
-  background-color: #fefefe;
-  color: black;
+#back {
+  margin-right: -4rem;
+}
+#forv {
+  margin-left: 10rem;
 }
 
 /* BIGIMAGE */

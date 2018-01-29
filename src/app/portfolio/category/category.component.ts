@@ -20,7 +20,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._route.params.subscribe((data: Data) => {
-
+      this.smoothscroll();
       this.portfolio = this.cutPortfolio(this.portfolioService.portfolio, data.category);
       if (this.portfolio != false) {
         this.category = data.category;
@@ -76,6 +76,16 @@ export class CategoryComponent implements OnInit, OnDestroy {
       }, {});
     return filtered;
   }
+
+
+  smoothscroll(){
+    let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.requestAnimationFrame(this.smoothscroll.bind(this));
+      window.scrollTo (0,currentScroll - (currentScroll/5));
+    }
+  }
+
 
   ngOnDestroy() {
     this.portfolioService.isSmall.next(false);

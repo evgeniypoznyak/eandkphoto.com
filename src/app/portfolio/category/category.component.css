@@ -8,7 +8,6 @@
 
 }
 
-/*!* BUTTONS *!*/
 #back, #forv {
   flex-basis: 300px;
 }
@@ -73,9 +72,7 @@
 }
 
 @media screen and (max-width: 300px) {
-  .holderB {
-    height: 44vh;
-  }
+
 }
 
 

@@ -3,18 +3,14 @@
 
     <!-- этот див очень важен, по нему выставляется слайдер!!! -->
     <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0; position: relative">
-      <img src="{{sliderPictures[0].src}}" style="width: 100%;">
+      <!--<img src="{{sliderPictures[0].src}}" style="width: 100%;">-->
+      <img src="{{sliderPictures[0].src}}" class="img-fluid">
     </div>
 
     <img
       *ngFor="let slider of sliderPictures; let i = index"
-      class="picture"
+      class="picture img-fluid"
       [@sliderTrigger]="markedIndex == i ? slider.pictureAnimation : 'hidden'"
       src="{{slider.src}}" alt="">
   </div>
-
-
-
-
-
 </div>

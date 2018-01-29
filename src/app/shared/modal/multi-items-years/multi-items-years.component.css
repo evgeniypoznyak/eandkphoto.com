@@ -9,6 +9,7 @@
   padding: 10px;
   text-align: center;
   margin: 4px;
+  background-color: #669AE1;
 }
 
 my-link {
@@ -33,20 +34,34 @@ my-link {
   color: darkorange;
 }
 
-.monthHeader {
-  background-color: #669AE1;
-  padding: 10px;
-}
-
-
 .wrapper {
   transition: opacity 1.5s;
 }
+
 .hidden {
-  opacity: 0 !important;
-  height: 0px !important;
+  display: none;
   font-size: 0px;
   width: 0px;
   background-color: transparent;
-  transition: opacity 1.5s;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul > h3 {
+  cursor: pointer;
+  margin: 0px;
+}
+
+li > h4 {
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 480px) {
+  .monthHeader {
+    font-size: medium;
+  }
 }

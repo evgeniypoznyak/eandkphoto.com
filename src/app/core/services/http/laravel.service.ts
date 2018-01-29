@@ -18,11 +18,15 @@ export class LaravelService {
   constructor(private _http: HttpClient, private _options: OptionsService, private _router: Router) { }
 
   getOneSliderItem(id: number) {
-    return this._http.get<any[]>(this.api.sliderApi + id, this.getHeaders)
+    return this._http.get<any[]>(this.api.sliderApi + '/' +id, this.getHeaders)
   }
 
   getEvents() {
     return this._http.get<any[]>(this.api.eventsApi, this.getHeaders)
+  }
+
+  getPictures() {
+    return this._http.get<any[]>(this.api.picturesApi, this.getHeaders)
   }
 
   onSendContact(body) {
@@ -32,7 +36,7 @@ export class LaravelService {
 
   getOneEvent(data) {
     let dynamicUrl = data.year + '/' + data.month + '/' + data.event;
-    return this._http.get<any[]>(this.api.eventsApi + dynamicUrl, this.getHeaders)
+    return this._http.get<any[]>(this.api.eventsApi + '/' + dynamicUrl, this.getHeaders)
   }
 
 
@@ -44,24 +48,77 @@ export class LaravelService {
     let api = this.api;
 
     reader.onload = function () {
-      body.file = reader.result;
-      console.log(body.sqlTime);
+
+      let binary = reader.result;
       const token = localStorage.getItem('token');
       formData.append('token', token);
-      formData.append('name', body.name);
-      formData.append('binary', body.file);
+      formData.append('name', body.file.name);
+     // formData.append('filename', body.name);
+      formData.append('binary', binary);
       formData.append('htmlDate', body.htmlDate);
       formData.append('year', body.year);
+      formData.append('eventName', body.eventName);
       formData.append('month', body.month);
       formData.append('description', body.description);
       formData.append('location', body.location);
-      formData.append('sqlTime', body.sql);
+      formData.append('sqlTime', body.sqlTime);
 
       con.post<any[]>(api.eventsApi, formData).subscribe((data) => {
         console.log(data);
       })
     }
 
+  }
+
+
+  editSlider(body){
+
+    let reader = new FileReader();
+    let formData: FormData = new FormData();
+    reader.readAsDataURL(body.file);
+    let con = this._http;
+    let api = this.api;
+
+    reader.onload = function () {
+      body.file = reader.result;
+      const token = localStorage.getItem('token');
+      formData.append('token', token);
+      formData.append('picture_id', body.pictureId);
+      formData.append('binary', body.file);
+      con.post<any[]>(api.sliderApi + '/' +body.sliderId, formData).subscribe((data) => {
+        console.log(data);
+      })
+    }
+  }
+
+  pictureAddToSlider(body){
+
+    let reader = new FileReader();
+    let formData: FormData = new FormData();
+    reader.readAsDataURL(body.file);
+    let con = this._http;
+    let api = this.api;
+
+    reader.onload = function () {
+      body.file = reader.result;
+      const token = localStorage.getItem('token');
+      formData.append('token', token);
+      formData.append('picture_id', body.pictureId);
+      formData.append('binary', body.file);
+      con.post<any[]>(api.sliderApi + '/add/' + body.sliderId, formData).subscribe((data) => {
+        console.log(data);
+      })
+    }
+  }
+
+  deletePictureFromSlider(body) {
+    let formData: FormData = new FormData();
+    const token = localStorage.getItem('token');
+    formData.append('token', token);
+    formData.append('picture_id', body.pictureId);
+    this._http.post<any[]>(this.api.sliderApi + '/delete/' + body.sliderId, formData).subscribe((data) => {
+      console.log(data);
+    })
   }
 
 
@@ -84,9 +141,29 @@ export class LaravelService {
     }
   }
 
-  // getOnePortfolio(portfolio: string) {
-  //   return this._http.get<any[]>(this.api.sliderApi + portfolio, this.getHeaders)
-  // }
+
+  onDeleteSlier(data){
+    let formData: FormData = new FormData();
+    const token = localStorage.getItem('token');
+    formData.append('token', token);
+
+    this._http.post<any[]>(this.api.sliderApi + '/delete-slider/' + data.slider, formData).subscribe((data) => {
+      console.log(data);
+    })
+
+  }
+
+  onAddNewSlider(){
+    let formData: FormData = new FormData();
+    const token = localStorage.getItem('token');
+    formData.append('token', token);
+
+    this._http.post<any[]>(this.api.sliderApi + '/create', formData).subscribe((data) => {
+      console.log(data);
+    })
+  }
+
+
 
 
   getAllPortfolios(){
@@ -146,6 +223,9 @@ export class LaravelService {
   }
 
   onLoginUser(email: string, password: string) {
+
+    console.log(this.api.loginUserApi);
+
     return this._http.post<any>(this.api.loginUserApi, {
       email: email,
       password: password,

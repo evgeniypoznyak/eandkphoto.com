@@ -1,6 +1,7 @@
 <ul *ngFor="let item of monthArr; let i = index" >
   <li>
     <a
+      class="btn btn-warning text-uppercase my-btn"
     [routerLink]="[
     '/events/',
     yearStr,

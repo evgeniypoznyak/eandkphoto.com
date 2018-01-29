@@ -1,17 +1,38 @@
-<div>
-  <h3>Login</h3>
-  <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="onLoginUser()">
-    <div>
-      <label   for="email">Email: </label>
-      <input formControlName="email"  type="email" id="email" name="email" >
-    </div>
-    <div>
-      <label for="password">Password: </label>
-      <input formControlName="password" type="password" id="password" name="password">
-    </div>
-    <div>
-      <button type="submit">Login</button>
-    </div>
+<div class="text-center">
+<form class="form-signin" id="loginForm" [formGroup]="loginForm" (ngSubmit)="onLoginUser()">
+  <!--IMAGE-->
+  <!--<img class="mb-4" alt="" width="72" height="72"-->
+       <!--src=""-->
+  <!--&gt;-->
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-  </form>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input formControlName="email"
+         type="email"
+         id="inputEmail"
+         class="form-control"
+         placeholder="Email address"
+         required
+         autofocus
+  >
+  <br>
+
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input formControlName="password"
+         type="password"
+         id="inputPassword"
+         class="form-control"
+         placeholder="Password"
+         required
+  >
+  <br>
+  <!--<div class="checkbox mb-3">-->
+    <!--<label>-->
+      <!--<input type="checkbox" value="remember-me"> Remember me-->
+    <!--</label>-->
+  <!--</div>-->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <!--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
+</form>
+
 </div>

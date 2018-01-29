@@ -1,3 +1,6 @@
+
+
+
 <div *ngIf="portfolio; else description_content">
 
   <div class="holderB">
@@ -10,17 +13,14 @@
       <div *ngFor="let picture of portfolio[category].large; let i = index">
         <img
           [ngClass]="{active : active == i}"
-          class="img" [src]="picture" alt="">
+          class="img img-fluid" [src]="picture" alt="">
       </div>
-
     </div>
   </div>
   <div class="buttons">
-    <input id="back" type="button" (click)="onPrev()" value="<">
-
-    <input id="forv" type="button" (click)="onNext()" value=">">
+    <input id="back" class="btn btn-outline-primary" type="button" (click)="onPrev()" value="<">
+    <input id="forv" type="button" class="btn btn-outline-primary" (click)="onNext()" value=">">
   </div>
-
 </div>
 
 

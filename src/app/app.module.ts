@@ -18,6 +18,7 @@ import {EventsService} from "./core/services/events.service";
 import {FirebaseService} from "./core/services/http/firebase.service";
 import {PortfolioResolverService} from "./portfolio/portfolio-resolver.service";
 import {PortfolioService} from "./portfolio/portfolio.service";
+import {AdminSliderListResolverService} from "./admin/admin-slider/admin-slider-list/admin-slider-list-resolver.service";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {PortfolioService} from "./portfolio/portfolio.service";
     AuthGuardService,
     PortfolioResolverService,
     PortfolioService,
+    AdminSliderListResolverService,
   ],
   bootstrap: [AppComponent]
 })

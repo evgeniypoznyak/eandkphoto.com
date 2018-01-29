@@ -1,0 +1,39 @@
+
+.card-title {
+  /*color: black;*/
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.card-text {
+  /*color: #3e3e3e;*/
+}
+
+
+.jumbotron > h1 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.card > .card-img-top {
+}
+
+
+.menu-holder {
+  position: fixed;
+  z-index: 1;
+  /*float: left;*/
+  /*margin-left: 100px;*/
+  /*left: 6rem;*/
+  /*top: 12rem;*/
+  right: 12rem;
+  bottom: 10rem;
+}
+
+
+.arrow-down {
+  transition: all 0.3s;
+}
+.arrow-down:hover {
+  background-color: #669AE1;
+}
+

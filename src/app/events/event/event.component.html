@@ -1,6 +1,5 @@
 <div *ngIf="check">
 
-
   <div class="holderB" [ngStyle]="{height:  !bigImage ? '0px' : ''}">
     <div class="bigImageWrap" >
       <!--FOR PRELOADING -->
@@ -11,7 +10,7 @@
 
       <img
         *ngIf="bigImage"
-        class="bigImage" src="{{ bigImage }}" alt="">
+        class="bigImage img-fluid" src="{{ bigImage }}" alt="">
 
     </div>
   </div>
@@ -33,6 +32,7 @@
     <div class="photos"  *ngFor="let small of events.dir.small; let i = index">
 
       <img
+        class="img-fluid"
         [ngClass]="{ visible : (i >= picturesStart ) && ( i <= picturesEnd) }"
 
         src="{{ small }}" alt=""

@@ -5,6 +5,8 @@ import {HttpHeaders} from '@angular/common/http';
 export class OptionsService {
 
   base = 'laravel';
+  homeURL = 'https://data.eandkphoto.com/api';
+ //homeURL = 'http://data.eandkphoto.loc/api';
 
   api;
 
@@ -48,14 +50,15 @@ export class OptionsService {
 
   laravel = {
     generalApi: '',
-    sliderApi: 'http://data.eandkphoto.loc/api/slider/',
-    eventsApi: 'http://data.eandkphoto.loc/api/events/',
-    portfolioApi: 'http://data.eandkphoto.loc/api/portfolio/',
+    sliderApi: this.homeURL + '/slider',
+    picturesApi: this.homeURL + '/pictures',
+    eventsApi: this.homeURL + '/events',
+    portfolioApi: this.homeURL + '/portfolio',
     //   getOneEventApi: 'http://data.eandkphoto.loc/api/events/:year/:month/:event',
-    loginUserApi: 'http://data.eandkphoto.loc/api/login/',
-    createUserApi: 'http://data.eandkphoto.loc/api/create-user/',
-    refreshTokenApi: 'http://data.eandkphoto.loc/api/refresh-token/',
-    contactApi: 'http://data.eandkphoto.loc/api/contact/',
+    loginUserApi: this.homeURL + '/login',
+    createUserApi: this.homeURL + '/create-user',
+    refreshTokenApi: this.homeURL + '/refresh-token',
+    contactApi: this.homeURL + '/contact',
     optHeaders: {
       optGet: {
         headers: new HttpHeaders(

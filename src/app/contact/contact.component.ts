@@ -12,17 +12,18 @@ import {Router} from "@angular/router";
 export class ContactComponent implements OnInit {
 
   formStatus: string  = 'ready';
-
   contactForm: FormGroup;
+  date : string;
 
   constructor(private _con: ConnectService, private router: Router) { }
 
   ngOnInit() {
+    this.date = this.setupDate();
 
     this.contactForm = new FormGroup({
       'name': new FormControl(null, [Validators.required]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'date': new FormControl(null,[Validators.required] ),
+      'date': new FormControl(this.date,[Validators.required] ),
       'message': new FormControl(null, [Validators.required]),
       'location': new FormControl(null),
     });
@@ -31,16 +32,8 @@ export class ContactComponent implements OnInit {
 
 
   onSubmit(){
-
     if (this.contactForm.valid) {
       this.formStatus = 'sending';
-      //
-      // console.log('form submitted');
-      // console.log(this.contactForm.value.name);
-      // console.log(this.contactForm.value.email);
-      // console.log(this.contactForm.value.date);
-      // console.log(this.contactForm.value.message);
-      // console.log(this.contactForm.value.location);
       const body = {
         name: this.contactForm.value.name,
         email: this.contactForm.value.email,
@@ -68,5 +61,25 @@ export class ContactComponent implements OnInit {
 
 
   }
+
+
+  setupDate() {
+    let month: any;
+    let day: any;
+    let dateObj = new Date();
+    month = dateObj.getUTCMonth() + 1; //months from 1-12
+
+    if (month < 10) {
+      month = '0' + month.toString();
+    }
+    day = dateObj.getUTCDate();
+    if (day < 10) {
+      day = '0' + day.toString();
+    }
+    let year = dateObj.getUTCFullYear();
+    return year + "-" + month + "-" + day;
+
+  }
+
 
 }

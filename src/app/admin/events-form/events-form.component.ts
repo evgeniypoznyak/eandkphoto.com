@@ -27,6 +27,7 @@ export class EventsFormComponent implements OnInit {
     this.eventForm = new FormGroup({
       // 'name': new FormControl(null),
       'date': new FormControl(null),
+      'eventName': new FormControl(null),
       'zip': new FormControl(null),
       'location': new FormControl(null),
       'description': new FormControl(null),
@@ -52,14 +53,16 @@ export class EventsFormComponent implements OnInit {
       name: this.eventForm.value.name,
       location: this.eventForm.value.location,
       description: this.eventForm.value.description,
+      eventName: this.eventForm.value.eventName,
       sqlTime: this.date.toISOString().slice(0, 19).replace('T', ' '),
     };
 
-
+    console.log(body);
     this._connect.addEvent(body)
     /*.subscribe((data)=>{
           console.log(data);
         })*/
+    this.eventForm.reset();
 
   }
 

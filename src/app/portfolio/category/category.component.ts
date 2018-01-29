@@ -45,7 +45,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
 
   onNext() {
-
+    clearInterval(this.interval);
     if (this.active + 1 > this.total - 1) {
       this.active = 0
     } else {
@@ -55,6 +55,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
   }
 
   onPrev() {
+    clearInterval(this.interval);
     if (this.active - 1 < 0) {
       this.active = this.total - 1;
     } else {

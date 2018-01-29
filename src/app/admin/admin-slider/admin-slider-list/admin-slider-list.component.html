@@ -1,4 +1,61 @@
-<p>
-  admin-slider-list works!
-</p>
+<div *ngIf="loadedData" >
+
+  <div *ngFor="let key of loadedData | keys">
+
+    <hr>
+    <h2>Slider: {{ key }}</h2>
+    <button (click)="onAddPictureStart(key)">Add Picture</button>
+
+    <div *ngFor="let picture of loadedData[key]">
+
+      <!--<div>Slider id: {{ key }}</div>-->
+      <!--<button (click)="onAddPictureStart(key, picture)">Add Picture</button>-->
+
+      <div>Picture id: {{ picture.id }}</div>
+
+      <img style="max-height: 100px" [src]="picture.src" alt="">
+      <button (click)="onEditSlider(key, picture)">Edit</button>
+      <button (click)="onDeletePicture(key, picture)">Delete</button>
+
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="sliderFormOpen">
+  <h3>Edit Slider</h3>
+  <img [src]="sliderFormData.src" style="max-height: 150px" alt="">
+  <form [formGroup]="sliderForm" (ngSubmit)="onSliderSent()">
+
+      <label for="picture">Picture: </label>
+      <!--<div>{{ sliderFormData.pictureSrc }}</div>-->
+      <input (change)="detectFiles($event)" formControlName="picture" type="file" id="picture" name="picture">
+
+    <br>
+    <div>
+      <button type="submit">Edit</button>
+    </div>
+
+  </form>
+</div>
+
+
+<div *ngIf="addPictureFormOpen">
+  <h3>Add Picture to slider</h3>
+  <h2>Slider id: {{ sliderFormData.sliderId }}</h2>
+  <form [formGroup]="sliderForm" (ngSubmit)="onPictureAdd()">
+
+    <label for="picture2">Picture: </label>
+    <!--<div>{{ sliderFormData.pictureSrc }}</div>-->
+    <input (change)="detectFiles($event)" formControlName="picture" type="file" id="picture2" name="picture2">
+
+    <br>
+    <div>
+      <button type="submit">Add Picture</button>
+    </div>
+
+  </form>
+</div>
+
+
 <router-outlet></router-outlet>

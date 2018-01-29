@@ -1,3 +1,96 @@
 <app-slider></app-slider>
-<app-header></app-header>
-<!--<app-test></app-test>-->
+
+<div id="menu-holder">
+  <app-header></app-header>
+</div>
+
+
+<!--<div class="container-fluid justify-content-center arrow-down">-->
+  <!--<a href="#events">-->
+    <!--<div class="row" style="text-align: center">-->
+      <!--<h2 class="col-4">-->
+        <!--<i class="fas fa-arrow-down"></i>-->
+      <!--</h2>-->
+      <!--<h2 class="col-4">-->
+        <!--<i class="fas fa-arrow-down"></i>-->
+      <!--</h2>-->
+      <!--<h2 class="col-4">-->
+        <!--<i class="fas fa-arrow-down"></i>-->
+      <!--</h2>-->
+    <!--</div>-->
+  <!--</a>-->
+<!--</div>-->
+
+
+
+  <div class="jumbotron text-white bg-dark" id="events">
+
+    <h1 class="font-italic">Events</h1>
+  </div>
+
+
+<div *ngIf="!fetched" style="text-align: center"><i class="fas fa-cog fa-spin fa-5x"></i></div>
+
+<div *ngIf="fetched">
+  <div class="container-fluid">
+
+    <div class="card-deck" >
+      <ng-container *ngFor="let newsItem of firstRow">
+        <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
+          <a [routerLink]="'/events/'+ newsItem.link">
+            <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
+            <p class="card-text">{{ newsItem.event.description }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{ newsItem.event.location }},   |   {{ newsItem.month }}, {{ newsItem.year }}</small>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <br>
+    <div class="card-deck" >
+      <ng-container *ngFor="let newsItem of secondRow">
+        <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
+          <a [routerLink]="'/events/'+ newsItem.link">
+            <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
+            <p class="card-text">{{ newsItem.event.description }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{ newsItem.event.location }}, {{ newsItem.month }}, {{ newsItem.year }}</small>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <br>
+    <div class="card-deck" >
+      <ng-container *ngFor="let newsItem of thirdRow">
+        <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
+          <a [routerLink]="'/events/'+ newsItem.link">
+            <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
+            <p class="card-text">{{ newsItem.event.description }}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{ newsItem.event.location }}, {{ newsItem.month }}, {{ newsItem.year }}</small>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+
+
+
+
+  </div>
+
+</div>
+<br>
+

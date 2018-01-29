@@ -42,9 +42,33 @@ export class ConnectService implements OnInit {
     return this.worker.getEvents();
   }
 
+  getPictures(){
+    return this.worker.getPictures();
+  }
+
   addEvent(body) {
     return this.worker.addEvent(body);
   }
+
+  editSlider(body){
+    return this.worker.editSlider(body);
+  }
+  pictureAddToSlider(body){
+    return this.worker.pictureAddToSlider(body);
+  }
+  deletePictureFromSlider(body){
+    return this.worker.deletePictureFromSlider(body);
+  }
+
+
+  onDeleteSlier(data){
+    return this.worker.onDeleteSlier(data);
+  }
+
+  onAddNewSlider(){
+    return this.worker.onAddNewSlider();
+  }
+
 
   addPortfolio(body) {
     return this.worker.addPortfolio(body);
@@ -75,6 +99,7 @@ export class ConnectService implements OnInit {
       }, (error) => {
         this.onLogOut();
         console.error(error);
+        localStorage.removeItem('token');
         reject(false)
       })
     })

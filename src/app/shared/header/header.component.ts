@@ -57,8 +57,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     // То что я загружаю через фолдер
-    this.eventsSubscription = this._connect.getEvents().subscribe((data) => {
-      this.menu.events = data;
+    this.eventsSubscription = this._connect.getEvents().subscribe((events) => {
+      this.menu.events = events.menu;
       //    console.log(data);
       this.fetched = true;
     //  console.log(this.menu.events);

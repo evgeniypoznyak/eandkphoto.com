@@ -113,7 +113,9 @@ li {
 }
 
 ul {
-  width: 90%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
 .headerModal {

@@ -29,7 +29,7 @@ export class EventComponent implements OnInit {
    //   console.log(data);
       this.check = true;
       this.events = data.eventsFromServer;
-  //    console.log(this.events);
+      console.log(this.events);
       this.picturesCount = this.events.dir.small.length
       this.setEndAndStartPictures(this.picturesCount)
     })

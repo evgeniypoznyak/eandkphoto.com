@@ -1,3 +1,30 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 li {
-  padding-bottom: 20px;
+  /*padding-bottom: 20px;*/
+  padding: 3px;
+}
+li > a {
+  color: white;
+}
+ul {
+  padding: 0px 0px 0px 5px;
+}
+
+/*ul {*/
+  /*margin: 0px;*/
+  /*padding: 0px;*/
+/*}*/
+
+
+/*:host {*/
+  /*margin: 0px;*/
+  /*padding: 0px;*/
+/*}*/
+.my-btn {
+  white-space: normal;
 }

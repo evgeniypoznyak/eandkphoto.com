@@ -1,3 +1,48 @@
-<p>
-  admin-slider-new works!
-</p>
+<br>
+<button type="button" (click)="onOpenForm()">Open/Close Render Form</button>
+<br>
+<div *ngIf="parseForm">
+
+  <form [formGroup]="pictureForm" (ngSubmit)="returnBase64()">
+
+    <h3>Render picture: </h3>
+
+    <input (change)="detectFiles($event)"
+           formControlName="picture"
+           type="file"
+           id="picture"
+           name="picture">
+    <div>
+      <br>
+      <button type="submit">Render Picture to base64 format</button>
+    </div>
+
+  </form>
+</div>
+
+
+<div *ngIf="fileParsed">
+  <div class="parser-result">
+    {{ fileResult }}
+  </div>
+</div>
+
+
+
+<button *ngIf="loadedData" type="button" (click)="onOpenSliders()">Open/Close Sliders</button>
+
+<div *ngIf="sliderEditOpen">
+
+
+
+    <div *ngFor="let slider of loadedData | keys ">
+      <p>
+        Slider {{ slider }}  <button (click)="onDeleteSlier(slider)">Delete</button>
+      </p>
+
+    </div>
+
+  <button (click)="onAddNewSlider()">Add New Slider</button>
+
+
+</div>

@@ -1,0 +1,7 @@
+.parser-result {
+  margin-top: 20px;
+  width: 100%;
+  word-wrap: break-word;
+  height: 30vh;
+  overflow-y: scroll;
+}

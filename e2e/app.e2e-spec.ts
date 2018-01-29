@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('eandkphoto-ng App', () => {
+describe('ng5bootstrap4 App', () => {
   let page: AppPage;
 
   beforeEach(() => {

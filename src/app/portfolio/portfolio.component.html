@@ -1,21 +1,14 @@
-<!--<div>-->
-  <!--<h1> {{ portfolioKey }} </h1>-->
-  <!--<a [routerLink]="portfolioKey">-->
-  <!--<img style="height: 100px" [src]="portfolios[portfolioKey].cover[0]" alt="">-->
-  <!--</a>-->
-<!--</div>-->
 <router-outlet></router-outlet>
-<br>
+<div class="wrap">
 
-
-<div class="wrap" [ngStyle]="{height: isSmall ? '250px' : ''}">
-  <a  *ngFor="let portfolioKey of portfolios | keys" [routerLink]="portfolioKey">
+  <a class=""  *ngFor="let portfolioKey of portfolios | keys" [routerLink]="portfolioKey">
     <div class="imageWrap" [ngClass]="{smallPortfolio: isSmall}">
-      <img class="imgCover" [src]="portfolios[portfolioKey].cover[0]" alt="" (click)="onPortfolio()">
+      <img class="img-fluid img-custom" [src]="portfolios[portfolioKey].cover[0]" alt="" (click)="onPortfolio()">
       <img style="display: none" [src]="portfolios[portfolioKey].large[0]" alt="" >
-      <div class="imageDescription">{{ portfolioKey }}</div>
+      <div class="imageDescription" [ngClass]="{smallHeaderFont: isSmall}"  >{{ portfolioKey | uppercase }}</div>
     </div>
   </a>
+
 </div>
 
 

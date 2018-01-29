@@ -23,16 +23,16 @@
   </nav>
 
 </div>
+
 <div *ngIf="isAuth">
   <div class="adminWrap">
 
-    <a class="adminLink" *ngFor="let admin of adminMenu" [routerLink]="admin.path">{{admin.name}}</a>
-    <a class="adminLink" (click)="onLogOut()">LogOut</a>
+    <a class="adminLink btn btn-outline-primary" *ngFor="let admin of adminMenu" [routerLink]="admin.path">{{admin.name}}</a>
+    <a class="adminLink btn btn-outline-danger" (click)="onLogOut()">LogOut</a>
 
   </div>
 
 </div>
-
 
 <app-modal></app-modal>
 

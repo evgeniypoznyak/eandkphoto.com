@@ -2,11 +2,12 @@
 
   <div class="holderB" [ngStyle]="{height:  !bigImage ? '0px' : ''}">
     <div class="bigImageWrap" >
-      <!--FOR PRELOADING -->
-      <img style="display: none"
-           *ngFor="let large of bigImagesArray"
-           src="{{ large }}" alt=""
-      >
+
+
+        <div *ngFor="let large of bigImagesArray"
+             style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0; position: absolute">
+          <img src="{{large}}" class="img-fluid">
+        </div>
 
       <img
         *ngIf="bigImage"
@@ -43,4 +44,38 @@
 
 </div>
 
+
+
+<!--<div class="card" style="width: 28rem;">-->
+  <!--&lt;!&ndash;FOR PRELOADING &ndash;&gt;-->
+  <!--<div *ngFor="let large of bigImagesArray">-->
+
+
+
+  <!--&lt;!&ndash; этот див очень важен, по нему выставляется слайдер!!! &ndash;&gt;-->
+  <!--<div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0; position: absolute">-->
+    <!--&lt;!&ndash;<img src="{{sliderPictures[0].src}}" style="width: 100%;">&ndash;&gt;-->
+    <!--<img src="{{large}}" class="img-fluid">-->
+
+  <!--</div>-->
+
+  <!--</div>-->
+  <!--<img *ngIf="bigImage" class="card-img-top"  src="{{ bigImage }}" alt="">-->
+<!--</div>-->
+
+
+<!--<div class="bwr" [ngStyle]="{height:  !bigImage ? '0px' : ''}">-->
+  <!--<div class="wr" >-->
+    <!--&lt;!&ndash;FOR PRELOADING &ndash;&gt;-->
+    <!--<img style="display: none"-->
+         <!--*ngFor="let large of bigImagesArray"-->
+         <!--src="{{ large }}" alt=""-->
+    <!--&gt;-->
+
+    <!--<img-->
+      <!--*ngIf="bigImage"-->
+      <!--class="img-fluid" src="{{ bigImage }}" alt="">-->
+
+  <!--</div>-->
+<!--</div>-->
 

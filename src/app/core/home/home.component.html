@@ -26,71 +26,64 @@
   <div class="jumbotron text-white bg-dark" id="events">
 
     <h1 class="font-italic">Events</h1>
+
   </div>
 
 
 <div *ngIf="!fetched" style="text-align: center"><i class="fas fa-cog fa-spin fa-5x"></i></div>
 
 <div *ngIf="fetched">
-  <div class="container-fluid">
+  <div class="container-fluid ">
 
-    <div class="card-deck" >
-      <ng-container *ngFor="let newsItem of firstRow">
-        <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
-          <a [routerLink]="'/events/'+ newsItem.link">
-            <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
-            <p class="card-text">{{ newsItem.event.description }}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">{{ newsItem.event.location }},   |   {{ newsItem.month }}, {{ newsItem.year }}</small>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-    <br>
-    <div class="card-deck" >
-      <ng-container *ngFor="let newsItem of secondRow">
-        <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
-          <a [routerLink]="'/events/'+ newsItem.link">
-            <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
-            <p class="card-text">{{ newsItem.event.description }}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">{{ newsItem.event.location }}, {{ newsItem.month }}, {{ newsItem.year }}</small>
-          </div>
-        </div>
-      </ng-container>
-    </div>
-    <br>
-    <div class="card-deck" >
-      <ng-container *ngFor="let newsItem of thirdRow">
-        <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
-          <a [routerLink]="'/events/'+ newsItem.link">
-            <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
-            <p class="card-text">{{ newsItem.event.description }}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">{{ newsItem.event.location }}, {{ newsItem.month }}, {{ newsItem.year }}</small>
-          </div>
-        </div>
-      </ng-container>
-    </div>
+    <div class="card-deck justify-content-around" >
 
 
+        <div
+          style="padding-bottom: 10px"
+          class="col-lg-4 col-sm-6 d-flex"
+          *ngFor="let newsItem of newsArray; let i = index"
+        >
+
+          <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
+            <a [routerLink]="'/events/'+ newsItem.link">
+
+
+              <ng-container *ngIf="i == 0 || i == 1 || i == 2">
+                <img class="card-img-top" [src]="base64Images[i]" alt="Card image cap">
+              </ng-container>
+
+              <ng-container  *ngIf="i != 0 && i != 1 && i != 2">
+                <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
+              </ng-container>
+
+
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
+              <p class="card-text">{{ newsItem.event.description }}</p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted ">{{ newsItem.event.location }},   |   {{ newsItem.month }}, {{ newsItem.year }}</small>
+            </div>
+          </div>
+
+
+      </div>
 
 
 
   </div>
 
+    <div *ngIf="scrollTop">
+      <button
+        class="btn btn-outline-primary fixed-button"
+        type="button"
+        role="button"
+        (click)="scrollToTop()"
+      >SCROLL TO TOP</button>
+    </div>
+
+</div>
 </div>
 <br>
 

@@ -19,6 +19,7 @@ import {FirebaseService} from "./core/services/http/firebase.service";
 import {PortfolioResolverService} from "./portfolio/portfolio-resolver.service";
 import {PortfolioService} from "./portfolio/portfolio.service";
 import {AdminSliderListResolverService} from "./admin/admin-slider/admin-slider-list/admin-slider-list-resolver.service";
+import {HomeService} from "./core/home/home.service";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {AdminSliderListResolverService} from "./admin/admin-slider/admin-slider-
     PortfolioResolverService,
     PortfolioService,
     AdminSliderListResolverService,
+    HomeService,
   ],
   bootstrap: [AppComponent]
 })

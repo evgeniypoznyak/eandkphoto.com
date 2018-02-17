@@ -1,0 +1,38 @@
+
+.animate-menu-item {
+  z-index: 1;
+  transition: all 0.5s;
+  animation: roll 1.5s ease-in-out forwards infinite;
+  margin-left: 10px;
+  position: fixed;
+  animation-delay: 500ms;
+}
+
+
+.animate-menu-item:hover{
+  opacity: 1;
+}
+
+.portfolio-animate{
+
+}
+
+@keyframes roll {
+  0% {
+    transform-origin: top left;
+    transform: rotate(75deg);
+  }
+  25% {
+  }
+  50% {
+    transform-origin: top left;
+    transform: rotate(65deg);
+  }
+  75% {
+  }
+  100% {
+    transform-origin: top left;
+    transform: rotate(75deg);
+  }
+
+}

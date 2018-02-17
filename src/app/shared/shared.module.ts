@@ -9,6 +9,7 @@ import {HeaderComponent} from "./header/header.component";
 import {ModalComponent} from "./modal/modal.component";
 import {MultiItemsYearsComponent} from "./modal/multi-items-years/multi-items-years.component";
 import {MultiItemsMonthsComponent} from "./modal/multi-items-months/multi-items-months.component";
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {MultiItemsMonthsComponent} from "./modal/multi-items-months/multi-items-
     HeaderComponent,
     ModalComponent,
     MultiItemsYearsComponent,
-    MultiItemsMonthsComponent
+    MultiItemsMonthsComponent,
+    MenuComponent
 
   ],
   exports: [
@@ -34,7 +36,8 @@ import {MultiItemsMonthsComponent} from "./modal/multi-items-months/multi-items-
     HeaderComponent,
     ModalComponent,
     MultiItemsYearsComponent,
-    MultiItemsMonthsComponent
+    MultiItemsMonthsComponent,
+    MenuComponent,
 
   ],
 })

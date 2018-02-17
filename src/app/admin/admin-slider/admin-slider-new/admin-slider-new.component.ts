@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute, Data} from "@angular/router";
+import { FormControl, FormGroup } from '@angular/forms';
+import {ActivatedRoute} from "@angular/router";
 import {ConnectService} from "../../../core/services/http/connect.service";
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-admin-slider-new',
@@ -19,14 +20,26 @@ export class AdminSliderNewComponent implements OnInit {
   sliderEditOpen: boolean = false;
   loadedData: any = false;
 
+  formValid: boolean = false;
+  pictureBase64: any = false;
+
   constructor(private _route: ActivatedRoute, private _conn: ConnectService) {
   }
 
   ngOnInit() {
-    this._route.data.subscribe((data: Data) => {
+    this.pictureForm = new FormGroup({
+      'picture': new FormControl(null),
+    });
+
+    this.fileResult = '';
+    this.fileParsed = false;
+    this.parseForm = !this.parseForm;
+
+    this._route.data.subscribe((data: any) => {
       this.loadedData = data.picturesFromServer;
-   //   console.log(this.loadedData);
     })
+
+
   }
 
   onDeleteSlier(slider) {
@@ -39,27 +52,24 @@ export class AdminSliderNewComponent implements OnInit {
   }
 
   onOpenForm() {
-    this.pictureForm = new FormGroup({
-      'picture': new FormControl(null),
-    });
-    this.fileResult = '';
-    this.fileParsed = false;
-    this.parseForm = !this.parseForm;
   }
 
   detectFiles(event) {
     this.selectedFiles = event.target.files;
+    this.formValid = true;
   }
 
   returnBase64() {
-    this.fileResult = '';
-    this.fileParsed = false;
-    let file = this.selectedFiles.item(0)
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.fileResult = reader.result;
-      this.fileParsed = true;
+      if (this.formValid) {
+      let file = this.selectedFiles.item(0)
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.pictureBase64 = true;
+        this.pictureForm.reset();
+        this.formValid = false;
+        console.log(reader.result);
+      }
     }
   }
 

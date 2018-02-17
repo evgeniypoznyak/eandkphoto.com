@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Upload } from '../../core/shared/Upload';
 import { UploadService } from '../../core/services/upload.service';
 import { ConnectService } from '../../core/services/http/connect.service';
+import { MessengerService } from '../../core/services/messenger.service';
 
 @Component({
   selector: 'app-events-form',
@@ -20,7 +21,7 @@ export class EventsFormComponent implements OnInit {
   sql: string;
 
 
-  constructor(private upSvc: UploadService, private _connect: ConnectService) { }
+  constructor(private upSvc: UploadService, private _connect: ConnectService, private _msg: MessengerService) { }
 
   ngOnInit() {
 
@@ -63,6 +64,14 @@ export class EventsFormComponent implements OnInit {
           console.log(data);
         })*/
     this.eventForm.reset();
+
+    let messages = [
+      {type: 'danger', message: 'danger'},
+      {type: 'success', message: 'success'},
+      {type: 'info', message: 'info'},
+      {type: 'warning', message: 'warning'},
+    ]
+    this._connect.worker.messageSub.next({type: 'success', message: 'New Event Was Submitted'})
 
   }
 

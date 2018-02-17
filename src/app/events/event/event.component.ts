@@ -26,10 +26,9 @@ export class EventComponent implements OnInit {
 
   ngOnInit() {
     this._route.data.subscribe((data: Data) => {
-   //   console.log(data);
       this.check = true;
       this.events = data.eventsFromServer;
-      console.log(this.events);
+     // console.log(this.events);
       this.picturesCount = this.events.dir.small.length
       this.setEndAndStartPictures(this.picturesCount)
     })
@@ -71,7 +70,6 @@ export class EventComponent implements OnInit {
     let half = length / 2;
     let end = length - 4;
     if (end < half) {}
- //   console.log(length);
   }
 
 

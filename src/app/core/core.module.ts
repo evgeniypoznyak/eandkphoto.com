@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SliderComponent } from './slider/slider.component';
 import { LoginComponent } from './login/login.component';
 import {SharedModule} from "../shared/shared.module";
+import { HomeEditComponent } from './home/home-edit/home-edit.component';
+import { MessengerComponent } from './messenger/messenger.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import {SharedModule} from "../shared/shared.module";
     FooterComponent,
     SliderComponent,
     LoginComponent,
+    HomeEditComponent,
+    MessengerComponent,
   ],
 
   imports: [
@@ -37,6 +41,7 @@ import {SharedModule} from "../shared/shared.module";
     FooterComponent,
     HomeComponent,
     SharedModule,
+    MessengerComponent,
   ],
   providers: [
 

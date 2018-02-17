@@ -1,0 +1,37 @@
+.message-wrapper {
+  position: fixed;
+  z-index: 100;
+  left: calc(100%/6);
+  top: calc(100%/10);
+}
+
+
+.custom-animate {
+  opacity: 1;
+  animation-name: example;
+  animation-duration: .5s;
+}
+
+
+@keyframes example {
+  0%   {
+    opacity: 0;
+    left: -200px; top:0px;
+  }
+  25%  {
+    opacity: 0.3;
+    left: 100px; top:0px;
+  }
+  50%  {
+    opacity: 0.5;
+    left: -50px; top:0px;
+  }
+  75%  {
+    opacity: 0.8;
+    left: 20px; top:0px;
+  }
+  100% {
+    opacity: 1;
+    left: 0px; top:0px;
+  }
+}

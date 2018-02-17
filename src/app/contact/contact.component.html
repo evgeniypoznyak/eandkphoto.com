@@ -1,107 +1,124 @@
+<section id="cover">
+  <div id="cover-caption">
+    <div class="container">
+      <div class="col col-sm-offset-1">
+
+        <form class="form-contact" id="contactForm"
+              *ngIf="formStatus === 'ready'"
+              [formGroup]="contactForm"
+              (ngSubmit)="onSubmit()"
+        >
+          <!--IMAGE-->
+          <!--<img class="mb-4" alt="" width="72" height="72"-->
+          <!--src=""-->
+          <!--&gt;-->
+          <div id="menu-holder">
+            <app-header></app-header>
+          </div>
+
+          <h1 class="h3 mb-3 font-weight-normal text-center">Contact Us</h1>
+
+          <div class="form-row">
+
+            <div class="col">
+              <label for="name">Name</label>
+              <input
+                class="form-control"
+                formControlName="name"
+                type="text" id="name"
+                autofocus
+              >
+            </div>
+
+            <div class="col">
+              <label for="email">Email</label>
+              <input
+                class="form-control"
+                formControlName="email"
+                type="email" id="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+
+            <div class="col">
+              <label for="location">Location</label>
+              <input
+                class="form-control"
+                formControlName="location"
+                type="text" id="location">
+            </div>
+
+            <div class="col">
+              <label for="date">Approx. Date</label>
+              <input
+                class="form-control"
+                formControlName="date"
+                type="date" id="date"
+              >
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <div class="col">
+
+              <label for="message">Message</label><br>
+              <textarea
+                class="form-control"
+                formControlName="message"
+                name="message"
+                id="message"
+
+                rows="2"></textarea>
+
+            </div>
+          </div>
+
+
+          <br>
+          <button
+            class="btn btn-lg btn-primary btn-block"
+            type="submit"
+            [disabled]="!contactForm.valid"
+          >Sign in</button>
+          <!--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
+        </form>
+
+
+
+        <div class="container align-content-center text-center justify-content-center" *ngIf="formStatus != 'ready'">
+
+          <div *ngIf="formStatus === 'sending'" class="loaderWrap">
+            <h1 class="display-4">
+              <i class="fas fa-cog fa-spin"></i>
+            </h1>
+          </div>
+
+          <div *ngIf="formStatus === 'sent'" class="statusWrap">
+            <h1 class="display-4">Thank you</h1>
+          </div>
+
+          <div *ngIf="formStatus === 'error'" class="statusWrap">
+            <h1 class="display-4">Error</h1>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
 <div id="background-img"
 >
 
-  <form class="form-contact" id="contactForm"
-    *ngIf="formStatus === 'ready'"
-    [formGroup]="contactForm"
-    (ngSubmit)="onSubmit()"
-    >
-      <!--IMAGE-->
-      <!--<img class="mb-4" alt="" width="72" height="72"-->
-      <!--src=""-->
-      <!--&gt;-->
-    <div id="menu-holder">
-      <app-header></app-header>
-    </div>
 
-      <h1 class="h3 mb-3 font-weight-normal text-center">Contact Us</h1>
-
-      <div class="form-row">
-
-        <div class="col">
-          <label for="name">Name</label>
-          <input
-            class="form-control"
-            formControlName="name"
-            type="text" id="name"
-            autofocus
-          >
-        </div>
-
-        <div class="col">
-          <label for="email">Email</label>
-          <input
-            class="form-control"
-            formControlName="email"
-            type="email" id="email">
-        </div>
-      </div>
-
-        <div class="form-row">
-
-          <div class="col">
-            <label for="location">Location</label>
-            <input
-              class="form-control"
-              formControlName="location"
-              type="text" id="location">
-          </div>
-
-          <div class="col">
-            <label for="date">Approx. Date</label>
-            <input
-              class="form-control"
-              formControlName="date"
-              type="date" id="date"
-           >
-          </div>
-
-        </div>
-
-      <div class="form-row">
-        <div class="col">
-
-          <label for="message">Message</label><br>
-          <textarea
-          class="form-control"
-          formControlName="message"
-          name="message"
-          id="message"
-
-          rows="2"></textarea>
-
-        </div>
-      </div>
-
-
-      <br>
-      <button
-        class="btn btn-lg btn-primary btn-block"
-        type="submit"
-        [disabled]="!contactForm.valid"
-      >Sign in</button>
-      <!--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
-    </form>
-
-
-
-    <div class="container align-content-center text-center justify-content-center" *ngIf="formStatus != 'ready'">
-
-      <div *ngIf="formStatus === 'sending'" class="loaderWrap">
-        <h1 class="display-4">
-          <i class="fas fa-cog fa-spin"></i>
-        </h1>
-      </div>
-
-      <div *ngIf="formStatus === 'sent'" class="statusWrap">
-        <h1 class="display-4">Thank you</h1>
-      </div>
-
-      <div *ngIf="formStatus === 'error'" class="statusWrap">
-        <h1 class="display-4">Error</h1>
-      </div>
-
-    </div>
 
 
 </div>

@@ -1,7 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {OptionsService} from "../core/services/options.service";
-import {ConnectService} from "../core/services/http/connect.service";
-import {ActivatedRoute, Data} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {PortfolioService} from "./portfolio.service";
 import {Subscription} from "rxjs/Subscription";
 
@@ -11,22 +9,17 @@ import {Subscription} from "rxjs/Subscription";
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent implements OnInit, OnDestroy {
-  //menu = this._opt.menu;
   portfolios = false;
   isSmall = false;
   isSmallSub: Subscription;
 
-  constructor(private _opt: OptionsService,
-              private _con: ConnectService,
-              private _route: ActivatedRoute,
-              private portfolioService: PortfolioService) {
+  constructor( private _route: ActivatedRoute, private portfolioService: PortfolioService) {
   }
 
   ngOnInit() {
 
-    this._route.data.subscribe((data: Data) => {
+    this._route.data.subscribe((data: any) => {
 
-      //  console.log(data);
 
       this.portfolios = data.portfoliosFromServer.portfolios;
       //    console.log(this.portfolios);

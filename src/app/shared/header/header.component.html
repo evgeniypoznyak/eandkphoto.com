@@ -1,31 +1,47 @@
-<div class="holder-menu">
-  <nav class="menu">
-    <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" [checked]="removeCheck"/>
-    <label class="menu-open-button" (click)="unCheck()">
-      <span class="lines line-1"></span>
-      <span class="lines line-2"></span>
-      <span class="lines line-3"></span>
-    </label>
+<!--<div class="holder-menu">-->
+  <!--<nav class="menu">-->
+    <!--<input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" [checked]="removeCheck"/>-->
+    <!--<label class="menu-open-button" (click)="unCheck()">-->
+      <!--<span class="lines line-1"></span>-->
+      <!--<span class="lines line-2"></span>-->
+      <!--<span class="lines line-3"></span>-->
+    <!--</label>-->
 
-    <a [routerLink]="['/']" class="menu-item blue"
-       (click)="unCheck()"><i class="fa fa-home"></i> </a>
-    <a [routerLink]="['/portfolio']" class="menu-item green"
-       (click)="unCheck()"><i class="fa fa-images"></i></a>
-    <a class="menu-item red"
-       (click)="openModal('events')" (click)="unCheck()"><i class="fa fa-history"></i> </a>
-    <a class="menu-item purple"
-       (click)="unCheck()"><i class="fa fa-user"></i> </a>
-    <a class="menu-item orange"
-       (click)="unCheck()" [routerLink]="['/contact']"><i class="fa fa-envelope"></i> </a>
-    <a class="menu-item lightblue"
-       (click)="openModal('social')"
-       (click)="unCheck()"><i class="fa fa-link"></i></a>
-  </nav>
+    <!--<a [routerLink]="['/']" class="menu-item blue"-->
+       <!--(click)="unCheck()"><i class="fa fa-home"></i> </a>-->
+    <!--<a [routerLink]="['/portfolio']" class="menu-item green"-->
+       <!--(click)="unCheck()"><i class="fa fa-images"></i></a>-->
+    <!--<a class="menu-item red"-->
+       <!--(click)="openModal('events')" (click)="unCheck()"><i class="fa fa-history"></i> </a>-->
+    <!--<a class="menu-item purple"-->
+       <!--(click)="unCheck()"><i class="fa fa-user"></i> </a>-->
+    <!--<a class="menu-item orange"-->
+       <!--(click)="unCheck()" [routerLink]="['/contact']"><i class="fa fa-envelope"></i> </a>-->
+    <!--<a class="menu-item lightblue"-->
+       <!--(click)="openModal('social')"-->
+       <!--(click)="unCheck()"><i class="fa fa-link"></i></a>-->
+  <!--</nav>-->
 
+<!--</div>-->
+
+<div class="holder-menu"
+     [routerLinkActiveOptions]="{exact: true}"
+     routerLinkActive="hidden"
+>
+<nav class="menu">
+<a
+  [routerLink]="['/']" class="menu-item blue"
+(click)="unCheck()"><i class="fa fa-home"></i> </a>
+</nav>
 </div>
 
 <div *ngIf="isAuth">
-  <div class="adminWrap">
+  <div class="row justify-content-center">
+    <button type="button" class="btn btn-sm btn-outline-primary"
+            (click)="adminMenuOpen = !adminMenuOpen">Admin Menu</button>
+  </div>
+
+  <div class="adminWrap" *ngIf="adminMenuOpen">
 
     <a class="adminLink btn btn-outline-primary" *ngFor="let admin of adminMenu" [routerLink]="admin.path">{{admin.name}}</a>
     <a class="adminLink btn btn-outline-danger" (click)="onLogOut()">LogOut</a>
@@ -34,5 +50,5 @@
 
 </div>
 
-<app-modal></app-modal>
+<!--<app-modal></app-modal>-->
 

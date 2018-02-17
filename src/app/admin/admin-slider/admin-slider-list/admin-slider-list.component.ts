@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Data} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Upload} from "../../../core/shared/Upload";
 import {ConnectService} from "../../../core/services/http/connect.service";
@@ -29,7 +29,7 @@ export class AdminSliderListComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private _connect: ConnectService) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: Data) => {
+    this._route.data.subscribe((data:any) => {
      this.loadedData = data.picturesFromServer;
      // console.log(this.loadedData);
     })

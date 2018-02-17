@@ -8,7 +8,6 @@
   /*color: #3e3e3e;*/
 }
 
-
 .jumbotron > h1 {
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   text-align: center;
@@ -16,7 +15,6 @@
 
 .card > .card-img-top {
 }
-
 
 .menu-holder {
   position: fixed;
@@ -36,11 +34,73 @@
   bottom: 1rem;
 }
 
-
 .arrow-down {
   transition: all 0.3s;
 }
+
 .arrow-down:hover {
   background-color: #669AE1;
 }
+
+.animate-menu-item {
+  /*position: relative;*/
+  z-index: 1;
+  transition: all 0.5s;
+
+  transform-origin: 50% 0;
+  animation: roll 1.5s ease-in-out forwards infinite;
+}
+
+
+.portfolio-animate {
+  left: 2rem;
+  top: 1rem;
+}
+
+
+.contact-animate {
+  left: 14rem;
+  top: 1rem;
+}
+
+
+
+
+@keyframes roll {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+
+  }
+  50% {
+
+    transform: rotate(-5deg);
+  }
+  75% {
+
+  }
+  100% {
+
+    transform: rotate(10deg);
+  }
+
+}
+
+@keyframes contact-roll {
+  0% {
+  }
+  25% {
+  }
+  50% {
+
+  }
+  75% {
+
+  }
+  100% {
+
+  }
+}
+
 

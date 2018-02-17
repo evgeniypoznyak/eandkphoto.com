@@ -34,6 +34,9 @@ export class ConnectService implements OnInit {
 
   }
 
+
+
+
   getOneSliderItem(id: number) {
     return this.worker.getOneSliderItem(id)
   }
@@ -49,6 +52,16 @@ export class ConnectService implements OnInit {
   addEvent(body) {
     return this.worker.addEvent(body);
   }
+
+  deleteEvent(id) {
+    return this.worker.deleteEvent(id);
+  }
+
+
+  message(){
+    return this.worker.message;
+  }
+
 
   editSlider(body){
     return this.worker.editSlider(body);
@@ -82,6 +95,11 @@ export class ConnectService implements OnInit {
     return this.worker.getOneEvent(data);
   }
 
+  updateEvent(data) {
+    return this.worker.updateEvent(data);
+  }
+
+
   onCreateUser(username, email, password) {
     return this.worker.onCreateUser(username, email, password);
   }
@@ -94,15 +112,19 @@ export class ConnectService implements OnInit {
   canActivatePromise() {
     const promise = new Promise((resolve, reject) => {
       this.subscription = this.isAuth().subscribe((result) => {
+        console.log('checking5');
         this.worker.subAuth.next(true);
         resolve(true);
       }, (error) => {
+        console.log('checking6');
+        this.worker.subAuth.next(false);
         this.onLogOut();
         console.error(error);
         localStorage.removeItem('token');
         reject(false)
       })
     })
+    console.log('checking7');
     return promise;
   }
 
@@ -113,6 +135,10 @@ export class ConnectService implements OnInit {
 
   refreshToken() {
     return this.worker.refreshToken();
+  }
+
+  isTokenExpired(){
+   return this.worker.isTokenExpired();
   }
 
   onLoginUser(email: string, password: string) {

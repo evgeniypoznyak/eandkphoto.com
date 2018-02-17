@@ -1,38 +1,40 @@
-<div class="text-center">
-<form class="form-signin" id="loginForm" [formGroup]="loginForm" (ngSubmit)="onLoginUser()">
-  <!--IMAGE-->
-  <!--<img class="mb-4" alt="" width="72" height="72"-->
-       <!--src=""-->
-  <!--&gt;-->
-  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+ <section id="cover">
+    <div id="cover-caption">
+      <div class="container">
+        <div class="col col-sm-offset-1">
 
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input formControlName="email"
-         type="email"
-         id="inputEmail"
-         class="form-control"
-         placeholder="Email address"
-         required
-         autofocus
-  >
-  <br>
 
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input formControlName="password"
-         type="password"
-         id="inputPassword"
-         class="form-control"
-         placeholder="Password"
-         required
-  >
-  <br>
-  <!--<div class="checkbox mb-3">-->
-    <!--<label>-->
-      <!--<input type="checkbox" value="remember-me"> Remember me-->
-    <!--</label>-->
-  <!--</div>-->
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <!--<p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
-</form>
+          <div class="text-center">
+            <form class="form-signin" id="loginForm" [formGroup]="loginForm" (ngSubmit)="onLoginUser()">
+              <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-</div>
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input formControlName="email"
+                     type="email"
+                     id="inputEmail"
+                     class="form-control"
+                     placeholder="Email address"
+                     required
+                     autofocus
+              >
+              <br>
+
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input formControlName="password"
+                     type="password"
+                     id="inputPassword"
+                     class="form-control"
+                     placeholder="Password"
+                     required
+              >
+              <br>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+

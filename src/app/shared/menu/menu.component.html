@@ -1,0 +1,46 @@
+<div class="container-fluid justify-content-around row" style="z-index: 2; position: fixed;">
+
+
+  <div *ngIf="menuItems.portfolio.active">
+    <button
+      [@menuTrigger]="menuInfo"
+      role="button"
+      [routerLink]="['/portfolio']"
+      class="btn btn-primary animate-menu-item portfolio-animate">PORTFOLIO</button>
+  </div>
+
+
+
+
+  <div *ngIf="menuItems.contact.active">
+    <button
+      [@menuTrigger]="menuInfo"
+      role="button"
+      [routerLink]="['/contact']"
+      class="btn btn-success animate-menu-item contact-animate">CONTACT US</button>
+  </div>
+
+
+
+  <div *ngIf="menuItems.about.active">
+    <button
+      [@menuTrigger]="menuInfo"
+      role="button"
+      [routerLink]="['/about']"
+      class="btn btn-warning animate-menu-item contact-animate">ABOUT US</button>
+  </div>
+
+
+
+  <div *ngIf="menuItems.social.active">
+    <button
+      [@menuTrigger]="menuInfo"
+      role="button"
+      [routerLink]="['/social']"
+      class="btn btn-info animate-menu-item contact-animate">SOCIAL</button>
+  </div>
+
+
+
+
+</div>

@@ -5,3 +5,11 @@
   height: 30vh;
   overflow-y: scroll;
 }
+
+
+.card {
+  max-width: 100%;
+}
+.card-footer {
+
+}

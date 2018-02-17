@@ -1,0 +1,35 @@
+
+<ng-container *ngIf="messageActive">
+
+  <div class="message-wrapper">
+
+    <div class="d-flex justify-content-center">
+
+      <div class="align-self-center">
+
+        <div
+          *ngFor="let notice of notification; let i = index"
+          [ngClass]="'alert alert-dismissible alert-' + notice.type"
+          class="fade show custom-animate" role="alert">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close" (click)="onDelete(i)">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{ notice.message}}
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</ng-container>
+
+
+

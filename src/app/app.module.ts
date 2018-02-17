@@ -20,6 +20,7 @@ import {PortfolioResolverService} from "./portfolio/portfolio-resolver.service";
 import {PortfolioService} from "./portfolio/portfolio.service";
 import {AdminSliderListResolverService} from "./admin/admin-slider/admin-slider-list/admin-slider-list-resolver.service";
 import {HomeService} from "./core/home/home.service";
+import { MessengerService } from './core/services/messenger.service';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {HomeService} from "./core/home/home.service";
     PortfolioService,
     AdminSliderListResolverService,
     HomeService,
+    MessengerService,
   ],
   bootstrap: [AppComponent]
 })

@@ -10,7 +10,6 @@ export class AuthGuardService implements CanActivate {
   constructor(private _connect: ConnectService, private _router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<boolean> | boolean {
-
     return this._connect.canActivatePromise()
       .then(value => {
       if (value != false) {
@@ -26,7 +25,6 @@ export class AuthGuardService implements CanActivate {
       this._router.navigate(['/']);
       return false;
     });
-
   }
 
 }

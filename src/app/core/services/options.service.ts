@@ -98,6 +98,31 @@ export class OptionsService {
   }
 
 
+ animatedMenu = {
+    portfolio: {
+      active: false,
+      scrollFromTop: 300,
+      cssClass: 'animate-menu-item'
+    },
+    contact: {
+      active: false,
+      scrollFromTop: 600,
+      cssClass: 'animate-menu-item'
+    },
+    about: {
+      active: false,
+      scrollFromTop: 900,
+      cssClass: 'animate-menu-item'
+    },
+    social: {
+      active: false,
+      scrollFromTop: 1200,
+      cssClass: 'animate-menu-item'
+    }
+  }
+
+
+
   constructor() {
     switch (this.base) {
       case 'laravel':

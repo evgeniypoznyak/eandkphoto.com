@@ -1,61 +1,88 @@
 <div *ngIf="loadedData" >
 
-  <div *ngFor="let key of loadedData | keys">
+  <div class="container">
 
-    <hr>
-    <h2>Slider: {{ key }}</h2>
-    <button (click)="onAddPictureStart(key)">Add Picture</button>
 
-    <div *ngFor="let picture of loadedData[key]">
+    <div *ngIf="sliderFormOpen">
+      <h3>Edit Slider</h3>
+      <img [src]="sliderFormData.src" style="max-height: 150px" alt="">
+      <form [formGroup]="sliderForm" (ngSubmit)="onSliderSent()">
 
-      <!--<div>Slider id: {{ key }}</div>-->
-      <!--<button (click)="onAddPictureStart(key, picture)">Add Picture</button>-->
+        <label for="picture">Picture: </label>
+        <!--<div>{{ sliderFormData.pictureSrc }}</div>-->
+        <input (change)="detectFiles($event)" formControlName="picture" type="file" id="picture" name="picture">
 
-      <div>Picture id: {{ picture.id }}</div>
+        <br>
+        <div>
+          <button type="submit">Edit</button>
+        </div>
 
-      <img style="max-height: 100px" [src]="picture.src" alt="">
-      <button (click)="onEditSlider(key, picture)">Edit</button>
-      <button (click)="onDeletePicture(key, picture)">Delete</button>
-
+      </form>
     </div>
+
+
+    <div *ngIf="addPictureFormOpen">
+      <h3>Add Picture to slider</h3>
+      <h2>Slider id: {{ sliderFormData.sliderId }}</h2>
+      <form [formGroup]="sliderForm" (ngSubmit)="onPictureAdd()">
+
+        <label for="picture2">Picture: </label>
+        <!--<div>{{ sliderFormData.pictureSrc }}</div>-->
+        <input (change)="detectFiles($event)" formControlName="picture" type="file" id="picture2" name="picture2">
+
+        <br>
+        <div>
+          <button type="submit">Add Picture</button>
+        </div>
+
+      </form>
+    </div>
+
+      <ng-container *ngFor="let key of loadedData | keys">
+
+        <div class="row">
+          <h1>Slider: {{ key }}</h1>
+          <div>
+            <button class="btn btn-outline-success" (click)="onAddPictureStart(key)"> Add Picture</button>
+          </div>
+
+        </div>
+
+        <div class="card-deck" >
+
+        <div class="row">
+          <div class="card text-white bg-dark" *ngFor="let picture of loadedData[key]">
+
+            <div class="card-body">
+
+              <div class="row justify-content-around">
+                <button class="btn btn-outline-warning" (click)="onEditSlider(key, picture)">Edit</button>
+                <button class="btn btn-outline-danger" (click)="onDeletePicture(key, picture)">Delete</button>
+              </div>
+
+              <img class="card-img-top" [src]="picture.src">
+
+              <h5 class="card-title">Picture id: {{ picture.id }}</h5>
+
+              <div class="card-text">
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+        </div>
+
+
+      </ng-container>
+
   </div>
 
+
 </div>
 
-<div *ngIf="sliderFormOpen">
-  <h3>Edit Slider</h3>
-  <img [src]="sliderFormData.src" style="max-height: 150px" alt="">
-  <form [formGroup]="sliderForm" (ngSubmit)="onSliderSent()">
-
-      <label for="picture">Picture: </label>
-      <!--<div>{{ sliderFormData.pictureSrc }}</div>-->
-      <input (change)="detectFiles($event)" formControlName="picture" type="file" id="picture" name="picture">
-
-    <br>
-    <div>
-      <button type="submit">Edit</button>
-    </div>
-
-  </form>
-</div>
-
-
-<div *ngIf="addPictureFormOpen">
-  <h3>Add Picture to slider</h3>
-  <h2>Slider id: {{ sliderFormData.sliderId }}</h2>
-  <form [formGroup]="sliderForm" (ngSubmit)="onPictureAdd()">
-
-    <label for="picture2">Picture: </label>
-    <!--<div>{{ sliderFormData.pictureSrc }}</div>-->
-    <input (change)="detectFiles($event)" formControlName="picture" type="file" id="picture2" name="picture2">
-
-    <br>
-    <div>
-      <button type="submit">Add Picture</button>
-    </div>
-
-  </form>
-</div>
 
 
 <router-outlet></router-outlet>

@@ -15,12 +15,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   menu = this._options.menu;
   adminMenu = this._options.menu.admin;
-  isAuth = this._loginService.staticLogin;
+  isAuth = !this._connect.isTokenExpired();
   fetched: boolean = false;
   eventsSubscription: Subscription;
   subAuthSubscription: Subscription;
   hidden: boolean = true;
   removeCheck = false;
+
+  adminMenuOpen: boolean = false;
 
 
   constructor(private _options: OptionsService,

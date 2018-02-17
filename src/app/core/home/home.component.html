@@ -1,26 +1,58 @@
-<app-slider></app-slider>
+<app-menu></app-menu>
 
-<div id="menu-holder">
-  <app-header></app-header>
-</div>
+<!--<div class="container-fluid justify-content-around row" style="z-index: 2; position: fixed;">-->
 
 
-<!--<div class="container-fluid justify-content-center arrow-down">-->
-  <!--<a href="#events">-->
-    <!--<div class="row" style="text-align: center">-->
-      <!--<h2 class="col-4">-->
-        <!--<i class="fas fa-arrow-down"></i>-->
-      <!--</h2>-->
-      <!--<h2 class="col-4">-->
-        <!--<i class="fas fa-arrow-down"></i>-->
-      <!--</h2>-->
-      <!--<h2 class="col-4">-->
-        <!--<i class="fas fa-arrow-down"></i>-->
-      <!--</h2>-->
-    <!--</div>-->
-  <!--</a>-->
+  <!--<div *ngIf="menuItems.portfolio.active">-->
+    <!--<button-->
+      <!--role="button"-->
+      <!--[routerLink]="['/portfolio']"-->
+      <!--class="btn btn-outline-primary btn-lg animate-menu-item portfolio-animate">PORTFOLIO</button>-->
+  <!--</div>-->
+
+
+
+
+  <!--<div *ngIf="menuItems.contact.active">-->
+    <!--<button-->
+      <!--role="button"-->
+      <!--[routerLink]="['/contact']"-->
+      <!--class="btn btn-outline-success btn-lg animate-menu-item contact-animate">CONTACT US</button>-->
+  <!--</div>-->
+
+
+
+  <!--<div *ngIf="menuItems.about.active">-->
+    <!--<button-->
+      <!--role="button" class="btn btn-outline-warning btn-lg animate-menu-item contact-animate">ABOUT US</button>-->
+  <!--</div>-->
+
+
+
+  <!--<div *ngIf="menuItems.social.active">-->
+    <!--<button-->
+      <!--role="button" class="btn btn-outline-info btn-lg animate-menu-item contact-animate">SOCIAL</button>-->
+  <!--</div>-->
+
+
+
+
 <!--</div>-->
 
+
+
+
+
+
+
+
+
+<div >
+  <app-slider></app-slider>
+
+  <div id="menu-holder">
+    <app-header></app-header>
+  </div>
 
 
   <div class="jumbotron text-white bg-dark" id="events">
@@ -30,12 +62,15 @@
   </div>
 
 
-<div *ngIf="!fetched" style="text-align: center"><i class="fas fa-cog fa-spin fa-5x"></i></div>
 
-<div *ngIf="fetched">
-  <div class="container-fluid ">
 
-    <div class="card-deck justify-content-around" >
+
+  <div *ngIf="!fetched" style="text-align: center"><i class="fas fa-cog fa-spin fa-5x"></i></div>
+
+  <div *ngIf="fetched">
+    <div class="container-fluid ">
+
+      <div class="card-deck justify-content-around" >
 
 
         <div
@@ -44,46 +79,129 @@
           *ngFor="let newsItem of newsArray; let i = index"
         >
 
-          <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
-            <a [routerLink]="'/events/'+ newsItem.link">
+          <ng-container *ngIf="i === newsToEdit">
+
+            <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
+
+              <div class="card-body">
 
 
-              <ng-container *ngIf="i == 0 || i == 1 || i == 2">
-                <img class="card-img-top" [src]="base64Images[i]" alt="Card image cap">
+                <div class="row justify-content-around">
+                  <button
+                    type="button" role="button" class="btn btn-outline-success"
+                    (click)="onNewsSave(i)" [disabled]="!newsForm.valid">SAVE</button>
+                  <button
+                    type="button" role="button" class="btn btn-outline-warning"
+                    (click)="onNewsCancel()">CLOSE</button>
+                  <button
+                    type="button" role="button" class="btn btn-outline-danger"
+                    (click)="onNewsDelete(i)">DELETE</button>
+                </div>
+
+                <div class="card-text">
+
+                  <form id="newsForm" [formGroup]="newsForm" (ngSubmit)="onNewsSave(i)">
+
+                    <div class="form-group">
+                      <label for="eventName" class="col col-form-label">Name</label>
+                      <div class="col">
+                        <input formControlName="eventName" type="text" class="form-control" id="eventName">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="description" class="col col-form-label">Description</label>
+                      <div class="col">
+                    <textarea
+                      formControlName="description"
+                      rows="10"
+                      class="form-control"
+                      id="description"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="location" class="col col-form-label">Location</label>
+                      <div class="col">
+                        <input formControlName="location" type="text" class="form-control" id="location">
+                      </div>
+                    </div>
+
+                  </form>
+
+                  <ng-container *ngIf="i == 0 || i == 1 || i == 2">
+                    <img class="card-img-top" [src]="base64Images[i]" alt="Card image cap">
+                  </ng-container>
+
+                  <ng-container  *ngIf="i != 0 && i != 1 && i != 2">
+                    <img class="card-img-top" [src]="newsItem.www + '/event-small.jpg'" alt="Card image cap">
+                  </ng-container>
+
+                </div>
+
+              </div>
+
+
+              <!--<app-home-edit [record]="newsItem.event"></app-home-edit>-->
+
+            </div>
+
+
+          </ng-container>
+
+          <ng-container *ngIf="i != newsToEdit">
+            <div class="card text-white bg-dark" *ngIf="newsItem != undefined">
+
+
+              <a [routerLink]="'/events/'+ newsItem.link">
+
+                <ng-container *ngIf="i == 0 || i == 1 || i == 2">
+                  <img class="card-img-top" [src]="base64Images[i]" alt="Card image cap">
+                </ng-container>
+
+                <ng-container  *ngIf="i != 0 && i != 1 && i != 2">
+                  <img class="card-img-top" [src]="newsItem.www + '/event-small.jpg'" alt="Card image cap">
+                </ng-container>
+
+              </a>
+
+              <ng-container *ngIf="!isSessionExpired">
+                <button
+                  type="button" role="button" class="btn btn-outline-success"
+                  (click)="onNewsItemEdit(i)">EDIT</button>
               </ng-container>
 
-              <ng-container  *ngIf="i != 0 && i != 1 && i != 2">
-                <img class="card-img-top" [src]="newsItem.www + '/event.jpg'" alt="Card image cap">
-              </ng-container>
+              <div class="card-body">
+                <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
+                <p class="card-text">{{ newsItem.event.description }}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted ">{{ newsItem.event.location }},   |   {{ newsItem.month }}, {{ newsItem.year }}</small>
+              </div>
 
 
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">{{ newsItem.event.eventName }}</h5>
-              <p class="card-text">{{ newsItem.event.description }}</p>
             </div>
-            <div class="card-footer">
-              <small class="text-muted ">{{ newsItem.event.location }},   |   {{ newsItem.month }}, {{ newsItem.year }}</small>
-            </div>
-          </div>
+          </ng-container>
+
+
+        </div>
+
 
 
       </div>
 
+      <div *ngIf="showButtonScrollToTop">
+        <button
+          class="btn btn-outline-primary fixed-button"
+          type="button"
+          role="button"
+          (click)="scrollToTop()"
+        >SCROLL TO TOP</button>
+      </div>
 
-
-  </div>
-
-    <div *ngIf="scrollTop">
-      <button
-        class="btn btn-outline-primary fixed-button"
-        type="button"
-        role="button"
-        (click)="scrollToTop()"
-      >SCROLL TO TOP</button>
     </div>
+  </div>
+  <br>
+</div>
 
-</div>
-</div>
-<br>
 

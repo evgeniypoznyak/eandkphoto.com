@@ -55,6 +55,12 @@ export class ContactComponent implements OnInit {
         // todo feedback error
         console.log(err);
         this.formStatus = 'error';
+        setTimeout(() => {
+          this.formStatus = 'ready';
+          this.router.navigate(['/']);
+        }, 2000)
+
+
        // this.router.navigate(['/']);
       })
     }

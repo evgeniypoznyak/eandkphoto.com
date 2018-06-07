@@ -11,13 +11,7 @@ import {LaravelService} from "../services/http/laravel.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
-// /events/2017/december/tasha-and-family-photoshoot-stockyards
-  siteURL = 'https://data.eandkphoto.com/api';
-  testURL = '/events/2017/december/tasha-and-family-photoshoot-stockyards';
-  // https://data.eandkphoto.com/api/login
-  // https://data.eandkphoto.com/api/login/
 
   constructor(private _connect: ConnectService,
               private loginService: LoginService,
@@ -41,37 +35,4 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-  testServer(){
-  //  let pass = '1234';
-  //  let email = 'evgene.pozniak@gmail.com'
-  //  let data = {password: 1234, email: 'evgene.pozniak@gmail.com'}
-
-
-    // this._laravel.onLoginUser(email, pass).subscribe((res) => {
-    //       console.log('Works!!!', res);
-    //     },
-    //     (error) => {
-    //
-    //       console.log('Error!!!', error);
-    //
-    //     });
-
-    if (this.loginForm.valid) {
-
-      this._http.get(this.siteURL + this.testURL).subscribe((res) => {
-          console.log('Works!!!', res);
-        },
-        (error) => {
-
-          console.log('Error!!!', error);
-
-        });
-    }
-
-
-
-
-
-  }
 }

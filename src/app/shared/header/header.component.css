@@ -2,6 +2,12 @@
   opacity: 0;
 }
 
+.admin-menu {
+  position: absolute;
+  left: 50%;
+  z-index: 3;
+}
+
 .adminWrap {
   display: flex;
   flex-direction: row;

@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
         this.menuItems.about.active = true;
         this.menuItems.social.active = true;
       }
-    }, 10000)
+    }, 15000)
 
 
   }

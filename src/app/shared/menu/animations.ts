@@ -50,6 +50,7 @@ export const menuTrigger = trigger('menuTrigger', [
           'transform-origin': 'top left',
           transform: 'rotate(55deg)',
         })),
+     // animate(1000),
 
       ]
     ),

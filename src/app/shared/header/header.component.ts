@@ -8,7 +8,7 @@ import {ModalService} from "../modal/modal.service";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./style.scss', './header.component.css'],
+  styleUrls: ['./style.css', './header.component.css'],
 
 })
 export class HeaderComponent implements OnInit, OnDestroy {

@@ -1,0 +1,10 @@
+#menu-holder {
+  position: relative;
+  z-index: 1;
+  top: 6rem;
+}
+
+p {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.42rem;
+}

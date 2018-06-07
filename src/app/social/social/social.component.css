@@ -7,8 +7,6 @@
 
 button > i {
   font-size: 3rem;
-  //padding: 0px;
-  //margin: 0px;
 }
 
 a {
@@ -23,7 +21,7 @@ a:hover {
 
 
 a > button {
-  border-radius: 20px;
+  border-radius: 11px;
 }
 
 
@@ -41,6 +39,4 @@ a > button {
 
 #cover-caption {
   width: 100%;
-  //background-color: rgba(28, 23, 49, 0.78);
-
 }

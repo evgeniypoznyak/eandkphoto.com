@@ -31,7 +31,7 @@ export class PortfolioFormComponent implements OnInit {
       file: file,
       portfolio: this.portfolioForm.value.portfolio,
     };
-    console.log(body);
+    // console.log(body);
 
     this._connect.addPortfolio(body)
   }

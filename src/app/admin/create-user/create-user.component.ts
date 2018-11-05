@@ -26,7 +26,7 @@ export class CreateUserComponent implements OnInit {
     this._connect.onCreateUser(
       this.createForm.value.name, this.createForm.value.email, this.createForm.value.password
     ).subscribe((response) => {
-         console.log(response);
+       //  console.log(response);
       }
     )
 

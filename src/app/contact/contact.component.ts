@@ -53,7 +53,7 @@ export class ContactComponent implements OnInit {
         }
       }, (err)=>{
         // todo feedback error
-        console.log(err);
+     //   console.log(err);
         this.formStatus = 'error';
         setTimeout(() => {
           this.formStatus = 'ready';

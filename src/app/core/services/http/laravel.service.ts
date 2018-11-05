@@ -89,7 +89,7 @@ export class LaravelService {
 
       con.post<any[]>(api.eventsApi, formData).subscribe((data) => {
         laravel.messageSub.next({ type: 'success', message: 'Event was added' })
-        console.log(data);
+     //   console.log(data);
       }, (error) => {
         laravel.messageSub.next({ type: 'danger', message: 'Error. Event not added.' })
 
@@ -138,7 +138,7 @@ export class LaravelService {
       formData.append('binary', body.file);
       con.post<any[]>(api.sliderApi + '/' + body.sliderId, formData).subscribe((data) => {
         laravel.messageSub.next({ type: 'success', message: 'Slider was edited' })
-        console.log(data);
+     //   console.log(data);
       }, (error) => {
         laravel.messageSub.next({ type: 'danger', message: 'Error during edit slider' })
       })
@@ -161,7 +161,7 @@ export class LaravelService {
       formData.append('binary', body.file);
       con.post<any[]>(api.sliderApi + '/add/' + body.sliderId, formData).subscribe((data) => {
         laravel.messageSub.next({ type: 'success', message: 'Picture was added to slider successfully' })
-        console.log(data);
+     //   console.log(data);
       }, (error) => {
         laravel.messageSub.next({ type: 'danger', message: 'Error! Picture not added to slider.' })
       })
@@ -175,7 +175,7 @@ export class LaravelService {
     formData.append('picture_id', body.pictureId);
     this._http.post<any[]>(this.api.sliderApi + '/delete/' + body.sliderId, formData).subscribe((data) => {
       this.messageSub.next({ type: 'success', message: 'Picture was successfully deleted from slier' })
-      console.log(data);
+   //   console.log(data);
     }, (error) => {
       this.messageSub.next({ type: 'danger', message: 'Error! Deleting picture from slider return error' })
     })
@@ -197,7 +197,7 @@ export class LaravelService {
       formData.append('binary', body.file);
       con.post<any[]>(api.portfolioApi, formData).subscribe((data) => {
         laravel.messageSub.next({ type: 'success', message: 'Portfolio was added successfully' })
-        console.log(data);
+     //   console.log(data);
       }, (error) => {
         laravel.messageSub.next({ type: 'danger', message: 'Error! Add portfolio return error' })
       })
@@ -212,7 +212,7 @@ export class LaravelService {
 
     this._http.post<any[]>(this.api.sliderApi + '/delete-slider/' + data.slider, formData).subscribe((data) => {
       this.messageSub.next({ type: 'success', message: 'Slider deleted' })
-      console.log(data);
+   //   console.log(data);
     }, (error) => {
       this.messageSub.next({ type: 'danger', message: 'Error! Deleting slider returned error' })
     })
@@ -226,7 +226,7 @@ export class LaravelService {
 
     this._http.post<any[]>(this.api.sliderApi + '/create', formData).subscribe((data) => {
       this.messageSub.next({ type: 'success', message: 'Slider was created' })
-      console.log(data);
+     // console.log(data);
     }, (error) => {
       this.messageSub.next({ type: 'success', message: 'Error! Slider not created' })
     })
@@ -245,7 +245,7 @@ export class LaravelService {
     }, this.postHeaders)
       .do(
         (data) => {
-          console.log(data.token);
+        //  console.log(data.token);
           localStorage.setItem('token', data.token);
         });
   }
@@ -289,7 +289,7 @@ export class LaravelService {
 
   onLoginUser(email: string, password: string) {
 
-    console.log(this.api.loginUserApi);
+  //  console.log(this.api.loginUserApi);
 
     return this._http.post<any>(this.api.loginUserApi, {
       email: email,

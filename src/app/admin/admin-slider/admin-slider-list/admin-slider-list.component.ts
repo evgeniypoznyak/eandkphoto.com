@@ -58,7 +58,7 @@ export class AdminSliderListComponent implements OnInit {
 
     let file = this.selectedFiles.item(0)
     this.currentUpload = new Upload(file);
-    console.log(this.currentUpload);
+  //  console.log(this.currentUpload);
 
     let body = {
       sliderId: this.sliderFormData.sliderId,
@@ -107,7 +107,7 @@ onDeletePicture(sliderId, picture) {
 
     let file = this.selectedFiles.item(0)
     this.currentUpload = new Upload(file);
-    console.log(this.currentUpload);
+  //  console.log(this.currentUpload);
 
     let body = {
       sliderId: this.sliderFormData.sliderId,

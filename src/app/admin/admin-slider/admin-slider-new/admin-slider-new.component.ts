@@ -68,7 +68,7 @@ export class AdminSliderNewComponent implements OnInit {
         this.pictureBase64 = true;
         this.pictureForm.reset();
         this.formValid = false;
-        console.log(reader.result);
+        // console.log(reader.result);
       }
     }
   }

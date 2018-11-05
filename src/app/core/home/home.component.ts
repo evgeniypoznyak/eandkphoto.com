@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this._msg.message.next({ type: 'success', message: 'Event Updated!' })
       }, (err) => {
         this._msg.message.next({ type: 'danger', message: 'Error during event updating' })
-        console.log('error! ', err);
+    //    console.log('error! ', err);
       })
 
 

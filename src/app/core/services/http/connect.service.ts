@@ -112,11 +112,11 @@ export class ConnectService implements OnInit {
   canActivatePromise() {
     const promise = new Promise((resolve, reject) => {
       this.subscription = this.isAuth().subscribe((result) => {
-        console.log('checking5');
+      //  console.log('checking5');
         this.worker.subAuth.next(true);
         resolve(true);
       }, (error) => {
-        console.log('checking6');
+       // console.log('checking6');
         this.worker.subAuth.next(false);
         this.onLogOut();
         console.error(error);
@@ -124,7 +124,7 @@ export class ConnectService implements OnInit {
         reject(false)
       })
     })
-    console.log('checking7');
+  //  console.log('checking7');
     return promise;
   }
 

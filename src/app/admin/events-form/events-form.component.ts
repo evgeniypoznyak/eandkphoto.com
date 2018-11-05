@@ -42,7 +42,7 @@ export class EventsFormComponent implements OnInit {
     this.parseDate(this.eventForm.value.date);
     this.currentUpload = new Upload(file);
 
-    console.log(this.currentUpload);
+    // console.log(this.currentUpload);
     this.upSvc.pushUpload(this.currentUpload)
 
 
@@ -58,7 +58,7 @@ export class EventsFormComponent implements OnInit {
       sqlTime: this.date.toISOString().slice(0, 19).replace('T', ' '),
     };
 
-    console.log(body);
+    // console.log(body);
     this._connect.addEvent(body)
     /*.subscribe((data)=>{
           console.log(data);

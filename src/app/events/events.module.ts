@@ -9,6 +9,7 @@ import { YearComponent } from './year/year.component';
 import { MonthComponent } from './month/month.component';
 import {SharedModule} from "../shared/shared.module";
 import {CoreModule} from "../core/core.module";
+import { GridEventComponent } from './grid-event/grid-event.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import {CoreModule} from "../core/core.module";
     SharedModule,
    // CoreModule
   ],
-  declarations: [EventsComponent, EventComponent, YearComponent, MonthComponent]
+  declarations: [EventsComponent, EventComponent, YearComponent, MonthComponent, GridEventComponent]
 })
 export class EventsModule { }

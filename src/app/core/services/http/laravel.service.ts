@@ -317,4 +317,9 @@ export class LaravelService {
   }
 
 
+  getImageFromServerByUrl(url) {
+    return this._http.get(this.api.downloadImageApi + '?url=' + url, { responseType: 'blob' });
+   // return this._http.get<any>(this.api.downloadImageApi + '?url=' + url,  { responseType: 'blob' })
+  }
+
 }

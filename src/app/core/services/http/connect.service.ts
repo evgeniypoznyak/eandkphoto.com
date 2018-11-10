@@ -153,4 +153,8 @@ export class ConnectService implements OnInit {
     return this.worker.onSendContact(data);
   }
 
+  onGetImageFromServerByUrl(url) {
+    return this.worker.getImageFromServerByUrl(url);
+  }
+
 }

@@ -28,9 +28,12 @@ export class EventComponent implements OnInit {
     this._route.data.subscribe((data: Data) => {
       this.check = true;
       this.events = data.eventsFromServer;
-     // console.log(this.events);
+     console.log(this.events);
       this.picturesCount = this.events.dir.small.length
       this.setEndAndStartPictures(this.picturesCount)
+      if (this.events.dir.large.length > 0) {
+        this.onShowBigImage(0);
+      }
     })
     this.getImagesAccordingIndex();
   }

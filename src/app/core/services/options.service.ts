@@ -5,7 +5,7 @@ import {HttpHeaders} from '@angular/common/http';
 export class OptionsService {
 
   base = 'laravel';
-  homeURL = 'https://data.eandkphoto.com/api';
+  homeURL = 'http://data.eandkphoto.loc/api';
  //homeURL = 'http://data.eandkphoto.loc/api';
 
   api;
@@ -59,6 +59,7 @@ export class OptionsService {
     createUserApi: this.homeURL + '/create-user',
     refreshTokenApi: this.homeURL + '/refresh-token',
     contactApi: this.homeURL + '/contact',
+    downloadImageApi: this.homeURL + '/download',
     optHeaders: {
       optGet: {
         headers: new HttpHeaders(

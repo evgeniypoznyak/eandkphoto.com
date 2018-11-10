@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './events.component';
-import { EventComponent } from './event/event.component';
 import { YearComponent } from './year/year.component';
 import { MonthComponent } from './month/month.component';
 import { EventResolverService } from './event-resolver.service';
+import {GridEventComponent} from "./grid-event/grid-event.component";
 
 const routes: Routes = [
   {
@@ -12,7 +12,9 @@ const routes: Routes = [
     children: [
       { path: ':year', component: YearComponent },
       { path: ':year/:month', component: MonthComponent },
-      { path: ':year/:month/:event', component: EventComponent, resolve: { eventsFromServer: EventResolverService } }
+      { path: ':year/:month/:event', component: GridEventComponent,
+        //resolve: { eventsFromServer: EventResolverService }
+      }
     ]
   }
 ];

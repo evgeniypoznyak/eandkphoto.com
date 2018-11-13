@@ -5,8 +5,8 @@ import {HttpHeaders} from '@angular/common/http';
 export class OptionsService {
 
   base = 'laravel';
-  homeURL = 'http://data.eandkphoto.loc/api';
- //homeURL = 'http://data.eandkphoto.loc/api';
+ // homeURL = 'http://data.eandkphoto.loc/api';
+ homeURL = 'https://data.eandkphoto.com/api';
 
   api;
 
@@ -27,15 +27,6 @@ export class OptionsService {
       animation: ''
     },
     portfolio: {
-      // portraits: {name: 'Portraits', path: '/portfolio/portraits'},
-      // family: {name: 'Family', path: '/portfolio/family'},
-      // miniSessions: {name: 'Mini Sessions', path: '/portfolio/mini-sessions'},
-      // maternity: {name: 'Maternity', path: '/portfolio/maternity'},
-      // newborn: {name: 'Newborn pictures', path: '/portfolio/newborn'},
-      // wedding: {name: 'Weddings', path: '/portfolio/wedding'},
-      // name: 'Portfolio',
-      // path: '/portfolio',
-      // animation: ''
     },
     admin: [
       {name: 'Create Event', path: '/admin/create-event'},
@@ -54,7 +45,6 @@ export class OptionsService {
     picturesApi: this.homeURL + '/pictures',
     eventsApi: this.homeURL + '/events',
     portfolioApi: this.homeURL + '/portfolio',
-    //   getOneEventApi: 'http://data.eandkphoto.loc/api/events/:year/:month/:event',
     loginUserApi: this.homeURL + '/login',
     createUserApi: this.homeURL + '/create-user',
     refreshTokenApi: this.homeURL + '/refresh-token',
@@ -67,7 +57,6 @@ export class OptionsService {
             'Content-Type': 'application/json',
             'X-Requested-With': ['XMLHttpRequest']
           }
-          // можно массив передавать, только надо настроить Cors.php
         )
       },
       optPut: {
@@ -76,7 +65,6 @@ export class OptionsService {
             'Content-Type': 'application/json',
             'X-Requested-With': ['XMLHttpRequest']
           }
-          // можно массив передавать, только надо настроить Cors.php
         )
       },
       optPost: {
@@ -85,7 +73,6 @@ export class OptionsService {
             'Content-Type': 'application/json',
             'X-Requested-With': ['XMLHttpRequest']
           }
-          // можно массив передавать, только надо настроить Cors.php
         )
       },
     }

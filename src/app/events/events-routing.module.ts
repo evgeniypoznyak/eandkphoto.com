@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: ':year', component: YearComponent },
       { path: ':year/:month', component: MonthComponent },
       { path: ':year/:month/:event', component: GridEventComponent,
-        //resolve: { eventsFromServer: EventResolverService }
+        resolve: { eventsFromServer: EventResolverService }
       }
     ]
   }

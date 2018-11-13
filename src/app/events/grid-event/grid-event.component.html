@@ -1,0 +1,36 @@
+<div id="menu-holder">
+  <app-header></app-header>
+  <button *ngIf="!iOS()" class="btn btn-info download-all" (click)="onDownloadAll()"><i class="fas fa-download"></i> Download All</button>
+</div>
+
+<div *ngIf="dataReceived" class="big-height">
+
+    <div class="card-wrapper">
+
+        <div class="card" style="width:500px" *ngFor="let picture of displayPictures; let i = index">
+          <img class="card-img-top" [src]="picture"  alt="Card image">
+          <div class="card-img-overlay">
+            <div class="card-content">
+              <button *ngIf="!iOS()" (click)="onDownloadOnePictureClick(i)" class="btn btn-sm btn-success"><i class="fas fa-download"></i></button>
+              <a target="_blank" [href]="facebookSharer + getEncodedPicture(i)"
+                 class="btn btn-sm btn-info"><i class="fab fa-facebook-square"></i></a>
+              <a [href]=eventPicturesLarge[i] target="_blank" class="btn btn-sm btn-primary"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="!dataReceived">
+  <div class="container align-content-center text-center justify-content-center">
+    <div class="loaderWrap">
+      <h1 class="display-4">
+        <i class="fas fa-cog fa-spin"></i>
+        <div *ngFor="let picture of eventPicturesSmall; let i = index">
+          <img style="position: absolute; display: none" class="card-img-top" [src]="picture"  alt="Card image">
+        </div>
+      </h1>
+    </div>
+  </div>
+</div>

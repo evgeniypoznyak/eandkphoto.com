@@ -5,8 +5,8 @@ import {HttpHeaders} from '@angular/common/http';
 export class OptionsService {
 
   base = 'laravel';
- // homeURL = 'http://data.eandkphoto.loc/api';
- homeURL = 'https://data.eandkphoto.com/api';
+  // homeURL = 'http://data.eandkphoto.loc/api';
+  homeURL = 'https://data.eandkphoto.com/api';
 
   api;
 
@@ -16,18 +16,12 @@ export class OptionsService {
       path: '/',
       animation: ''
     },
-    // about: {
-    //   name: 'About',
-    //   path: '/about',
-    //   animation: ''
-    // },
     contact: {
       name: 'Contact',
       path: '/contact',
       animation: ''
     },
-    portfolio: {
-    },
+    portfolio: {},
     admin: [
       {name: 'Create Event', path: '/admin/create-event'},
       {name: 'Add Portfolio', path: '/admin/add-portfolio'},
@@ -86,7 +80,7 @@ export class OptionsService {
   }
 
 
- animatedMenu = {
+  animatedMenu = {
     portfolio: {
       active: false,
       scrollFromTop: 300,
@@ -108,7 +102,6 @@ export class OptionsService {
       cssClass: 'animate-menu-item'
     }
   }
-
 
 
   constructor() {

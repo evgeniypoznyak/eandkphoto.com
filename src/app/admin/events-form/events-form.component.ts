@@ -32,6 +32,7 @@ export class EventsFormComponent implements OnInit {
       'zip': new FormControl(null),
       'location': new FormControl(null),
       'description': new FormControl(null),
+      'archiveLink': new FormControl(null),
     });
 
   }
@@ -55,6 +56,7 @@ export class EventsFormComponent implements OnInit {
       location: this.eventForm.value.location,
       description: this.eventForm.value.description,
       eventName: this.eventForm.value.eventName,
+      archiveLink: this.eventForm.value.archiveLink,
       sqlTime: this.date.toISOString().slice(0, 19).replace('T', ' '),
     };
 

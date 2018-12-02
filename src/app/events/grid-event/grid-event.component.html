@@ -1,6 +1,11 @@
 <div id="menu-holder">
   <app-header></app-header>
-  <button *ngIf="!iOS()" class="btn btn-info download-all" (click)="onDownloadAll()"><i class="fas fa-download"></i> Download All</button>
+  <button *ngIf="!iOS()" class="btn btn-info download-all" (click)="onDownloadAll()"><i class="fas fa-download"></i> Download all in low resolution</button>
+  <div>
+    <button *ngIf="archiveLink.length > 10" class="btn btn-info download-all" ><i class="fas fa-download"></i>
+      <a [href]="archiveLink" style="text-decoration: none" target="_blank">Download all in high resolution (zip file)</a>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="dataReceived" class="big-height">

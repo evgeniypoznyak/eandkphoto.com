@@ -79,6 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       'eventName': new FormControl(this.news[index].event.eventName, [Validators.required]),
       'description': new FormControl(this.news[index].event.description, [Validators.required]),
       'location': new FormControl(this.news[index].event.location, [Validators.required]),
+      'archiveLink': new FormControl(this.news[index].event.archive_link, [Validators.required]),
     });
 
     this.newsToEdit = index;
@@ -92,12 +93,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         'eventName': this.newsForm.value.eventName,
         'description': this.newsForm.value.description,
         'location': this.newsForm.value.location,
+        'archiveLink': this.newsForm.value.archiveLink,
       }
 
       this._connect.updateEvent(data).subscribe((response) => {
         this.news[index].event.description = response.event.description
         this.news[index].event.eventName = response.event.eventName
-        this.newsToEdit = 'poop';
+        this.news[index].event.archiveLink = response.event.archiveLink
         this.newsForm.reset();
         this._msg.message.next({ type: 'success', message: 'Event Updated!' })
       }, (err) => {

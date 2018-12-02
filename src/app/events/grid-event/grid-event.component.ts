@@ -19,7 +19,8 @@ export class GridEventComponent implements OnInit, OnDestroy {
   eventCoverLarge: string;
   displayPictures: string[];
   chunkSize: number;
-  facebookSharer = 'https://www.facebook.com/sharer/sharer.php?u='
+  facebookSharer = 'https://www.facebook.com/sharer/sharer.php?u=';
+  archiveLink: string = '';
 
   @HostListener('window:scroll', ['$event'])
   onScrollEvent() {
@@ -54,7 +55,9 @@ export class GridEventComponent implements OnInit, OnDestroy {
             this.dataReceived = true;
           }, 1000)
         }
-
+        if (this.displayArchiveLink(data)) {
+          this.archiveLink = data.eventsFromServer.event[0]['archive_link'];
+        }
       }
     });
   }
@@ -101,7 +104,6 @@ export class GridEventComponent implements OnInit, OnDestroy {
     this.eventPicturesSmall = data.dir.small;
     this.eventPicturesLarge = data.dir.large;
     this.eventCoverSmall = data.dir.cover[0];
-
     this.eventCoverLarge = data.dir.cover[1];
     this.dataReceived = true;
   }
@@ -129,12 +131,18 @@ export class GridEventComponent implements OnInit, OnDestroy {
       data.eventsFromServer.event[0]['location'] &&
       data.eventsFromServer.event[0]['location'].length > 0 &&
       data.eventsFromServer.event[0]['name'] &&
-      data.eventsFromServer.event[0]['name'].length > 0
+      data.eventsFromServer.event[0]['name'].length > 0 &&
+      data.eventsFromServer.event[0]['archive_link']
     ) {
       return true;
     }
     return true;
   }
+
+  displayArchiveLink(data): boolean {
+    return (data.eventsFromServer.event[0]['archive_link'].length > 10)
+  }
+
 
   getDocumentHeight() {
     const body = document.body;
@@ -163,8 +171,7 @@ export class GridEventComponent implements OnInit, OnDestroy {
     if (pictureArray) {
       if (this.getScrollTop() < this.getDocumentHeight() - window.innerHeight - 200) {
         return
-      }
-      else {
+      } else {
         this.pushPicturesToDisplay();
       }
       ;

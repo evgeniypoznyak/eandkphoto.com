@@ -58,6 +58,7 @@ export class LaravelService {
     formData.append('description', data.description);
     formData.append('eventName', data.eventName);
     formData.append('location', data.location);
+    formData.append('archiveLink', data.archiveLink);
     formData.append('id', data.id);
 
     return this._http.post<any[]>(this.api.eventsApi + '/update/' + data.id, formData)
@@ -85,6 +86,7 @@ export class LaravelService {
       formData.append('month', body.month);
       formData.append('description', body.description);
       formData.append('location', body.location);
+      formData.append('archiveLink', body.archiveLink);
       formData.append('sqlTime', body.sqlTime);
 
       con.post<any[]>(api.eventsApi, formData).subscribe((data) => {

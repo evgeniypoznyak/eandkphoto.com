@@ -43,7 +43,6 @@ export class MenuComponent implements OnInit {
 
   getScrollTop() {
     return (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body).scrollTop;
-    // window.pageYOffset || document.documentElement.showButtonScrollToTop || document.body.showButtonScrollToTop || 0;
   }
 
 
